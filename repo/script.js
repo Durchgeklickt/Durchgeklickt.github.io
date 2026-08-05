@@ -152,3 +152,136 @@
   }
 
 })();
+
+/* ═══════════════════════════════════════════════════════
+   CHAT WIDGET
+   Setzt CHAT_API_URL auf die Railway-URL nach dem Deploy.
+═══════════════════════════════════════════════════════ */
+(function () {
+  "use strict";
+
+  // Nach Railway-Deploy hier die echte URL eintragen:
+  var CHAT_API_URL = "https://DEINE-APP.railway.app/chat";
+
+  var fab      = document.getElementById("chatFab");
+  var panel    = document.getElementById("chatPanel");
+  var closeBtn = document.getElementById("chatClose");
+  var form     = document.getElementById("chatForm");
+  var input    = document.getElementById("chatInput");
+  var messages = document.getElementById("chatMessages");
+  var badge    = document.getElementById("chatBadge");
+  var iconOpen  = fab ? fab.querySelector(".chat-fab-icon--open")  : null;
+  var iconClose = fab ? fab.querySelector(".chat-fab-icon--close") : null;
+
+  if (!fab || !panel) return;
+
+  var history = [];
+  var isOpen  = false;
+  var isTyping = false;
+
+  function openChat() {
+    isOpen = true;
+    panel.hidden = false;
+    fab.setAttribute("aria-expanded", "true");
+    if (iconOpen)  iconOpen.hidden  = true;
+    if (iconClose) iconClose.hidden = false;
+    if (badge) { badge.classList.add("hidden"); }
+    scrollToBottom();
+    input.focus();
+  }
+
+  function closeChat() {
+    isOpen = false;
+    panel.hidden = true;
+    fab.setAttribute("aria-expanded", "false");
+    if (iconOpen)  iconOpen.hidden  = false;
+    if (iconClose) iconClose.hidden = true;
+  }
+
+  function scrollToBottom() {
+    if (messages) messages.scrollTop = messages.scrollHeight;
+  }
+
+  function addMessage(text, role) {
+    var div = document.createElement("div");
+    div.className = "chat-msg chat-msg--" + (role === "user" ? "user" : "bot");
+    div.textContent = text;
+    messages.appendChild(div);
+    scrollToBottom();
+    return div;
+  }
+
+  function showTyping() {
+    var div = document.createElement("div");
+    div.className = "chat-msg chat-msg--bot chat-msg--typing";
+    div.id = "chatTyping";
+    div.innerHTML = "<span></span><span></span><span></span>";
+    messages.appendChild(div);
+    scrollToBottom();
+  }
+
+  function hideTyping() {
+    var t = document.getElementById("chatTyping");
+    if (t) t.remove();
+  }
+
+  fab.addEventListener("click", function () {
+    isOpen ? closeChat() : openChat();
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeChat);
+  }
+
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var msg = input.value.trim();
+      if (!msg || isTyping) return;
+
+      addMessage(msg, "user");
+      history.push({ role: "user", parts: [{ text: msg }] });
+      input.value = "";
+      input.disabled = true;
+      form.querySelector(".chat-send").disabled = true;
+      isTyping = true;
+      showTyping();
+
+      var payload = JSON.stringify({
+        message: msg,
+        history: history.slice(0, -1)
+      });
+
+      fetch(CHAT_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          hideTyping();
+          var reply = data.reply || "Entschuldigung, ich konnte keine Antwort abrufen.";
+          addMessage(reply, "bot");
+          history.push({ role: "model", parts: [{ text: reply }] });
+        })
+        .catch(function () {
+          hideTyping();
+          addMessage("Verbindungsfehler — bitte versuchen Sie es kurz später nochmal.", "bot");
+        })
+        .finally(function () {
+          isTyping = false;
+          input.disabled = false;
+          form.querySelector(".chat-send").disabled = false;
+          input.focus();
+        });
+    });
+  }
+
+  // Badge nach 4 Sekunden anzeigen wenn Chat noch nicht geöffnet
+  setTimeout(function () {
+    if (!isOpen && badge) {
+      badge.classList.remove("hidden");
+    }
+  }, 4000);
+
+}());
