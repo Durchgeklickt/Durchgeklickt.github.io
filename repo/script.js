@@ -161,7 +161,7 @@
   "use strict";
 
   // Nach Railway-Deploy hier die echte URL eintragen:
-  var CHAT_API_URL = "https://DEINE-APP.railway.app/chat";
+  var CHAT_API_URL = "https://durchgeklicktgithubio-production.up.railway.app/chat";
 
   var fab      = document.getElementById("chatFab");
   var panel    = document.getElementById("chatPanel");
