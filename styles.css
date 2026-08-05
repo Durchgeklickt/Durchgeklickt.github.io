@@ -839,6 +839,36 @@ a { color: var(--color-blue); }
   pointer-events: auto;
 }
 
+/* ── Splitting.js — Hero H1 Buchstaben-Animation ── */
+.hero h1.splitting-ready .word { overflow: visible; }
+.hero h1.splitting-ready .char {
+  display: inline-block;
+  animation: char-drop-in 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-delay: calc(40ms + var(--char-index) * 22ms);
+}
+@keyframes char-drop-in {
+  from { opacity: 0; transform: translateY(22px) rotate(2deg); }
+  to   { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+/* ── just-validate Fehlertext ── */
+.just-validate-error-label {
+  color: var(--color-red-text) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-top: 3px !important;
+}
+.just-validate-error-field {
+  border-color: var(--color-red) !important;
+}
+
+/* ── Lenis Smooth Scroll ── */
+html.lenis { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+
 @media print {
   .fade-in { transform: none !important; }
   .mobile-sticky-cta, .site-header { display: none !important; }
