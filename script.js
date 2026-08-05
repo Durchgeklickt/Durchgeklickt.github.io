@@ -51,6 +51,59 @@
     ctaObserver.observe(kontaktSection);
   }
 
+  // Sticky Header
+  var header = document.querySelector('.site-header');
+  if (header) {
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('is-scrolled', window.scrollY > 40);
+    }, { passive: true });
+  }
+
+  // Animierte Zähler in der Stats-Leiste
+  var statNums = document.querySelectorAll('.stat-num[data-target]');
+  if (statNums.length && 'IntersectionObserver' in window) {
+    var counterObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        if (target === 0) { el.textContent = '0'; obs.unobserve(el); return; }
+        var start = 0;
+        var duration = 1200;
+        var startTime = null;
+        function step(ts) {
+          if (!startTime) startTime = ts;
+          var progress = Math.min((ts - startTime) / duration, 1);
+          var ease = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(ease * target);
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = target;
+        }
+        requestAnimationFrame(step);
+        obs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    statNums.forEach(function (el) { counterObserver.observe(el); });
+  }
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      // alle anderen schließen
+      document.querySelectorAll('.faq-question').forEach(function (other) {
+        other.setAttribute('aria-expanded', 'false');
+        var ans = other.nextElementSibling;
+        if (ans) ans.hidden = true;
+      });
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        var answer = btn.nextElementSibling;
+        if (answer) answer.hidden = false;
+      }
+    });
+  });
+
   // Sprint 123: Formspree leitet nach erfolgreichem Versand per "_next"-Feld auf
   // "?gesendet=1#kontakt" zurueck -- zeigt dann die Erfolgsmeldung im Bauhaus-Look statt
   // Formsprees eigener generischer Danke-Seite, damit der Nutzer den Absender nicht verlaesst.
