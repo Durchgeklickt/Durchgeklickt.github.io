@@ -1,26 +1,26 @@
 import os
+import time
+from collections import defaultdict
+from typing import Any
+
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
 from groq import Groq
-from collections import defaultdict
-import time
+from pydantic import BaseModel, field_validator
 
-app = FastAPI()
+# Disable FastAPI auto-docs — no info leakage via /docs /redoc /openapi.json
+app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 
 ALLOWED_ORIGINS = [
     "https://durchgeklickt.com",
     "https://www.durchgeklickt.com",
     "https://durchgeklickt.github.io",
-    "http://localhost:5500",
-    "http://127.0.0.1:5500",
-    "http://localhost:8080",
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,
-    allow_methods=["POST", "GET"],
+    allow_methods=["POST"],
     allow_headers=["Content-Type"],
 )
 
@@ -50,12 +50,21 @@ Deine Aufgabe:
 - Gib dich nicht als Mensch aus — du bist ein digitaler Assistent
 - Antworte immer auf Deutsch"""
 
-_rate_limit: dict = defaultdict(list)
-RATE_LIMIT_WINDOW = 60
-RATE_LIMIT_MAX = 20  # Groq hat 14.400 RPM -- wir limitieren trotzdem pro IP
+# ── Rate Limiting ──────────────────────────────────────────────────────────────
+_rate_limit: dict[str, list[float]] = defaultdict(list)
+RATE_LIMIT_WINDOW = 60   # Sekunden
+RATE_LIMIT_MAX = 10      # Requests pro IP pro Minute
 
 
-def check_rate_limit(ip: str) -> bool:
+def _real_ip(request: Request) -> str:
+    """Railway sitzt hinter einem Reverse Proxy — X-Forwarded-For auswerten."""
+    forwarded = request.headers.get("X-Forwarded-For")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    return request.client.host if request.client else "unknown"
+
+
+def _check_rate_limit(ip: str) -> bool:
     now = time.time()
     _rate_limit[ip] = [t for t in _rate_limit[ip] if now - t < RATE_LIMIT_WINDOW]
     if len(_rate_limit[ip]) >= RATE_LIMIT_MAX:
@@ -64,50 +73,86 @@ def check_rate_limit(ip: str) -> bool:
     return True
 
 
+# ── Security Headers Middleware ────────────────────────────────────────────────
+_SECURITY_HEADERS = {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "geolocation=(), camera=(), microphone=()",
+}
+
+
+@app.middleware("http")
+async def add_security_headers(request: Request, call_next):
+    response = await call_next(request)
+    for key, value in _SECURITY_HEADERS.items():
+        response.headers[key] = value
+    return response
+
+
+# ── Request Models ─────────────────────────────────────────────────────────────
+MAX_MSG_LEN = 500
+MAX_HISTORY_TURNS = 4      # letzte 4 Hin-und-Her-Paare = 8 Nachrichten
+MAX_HISTORY_MSG_LEN = 300  # pro History-Nachricht
+
+
+class ChatRequest(BaseModel):
+    message: str
+    history: list[Any] = []
+
+    @field_validator("message")
+    @classmethod
+    def validate_message(cls, v: str) -> str:
+        v = v.strip()
+        if not v:
+            raise ValueError("empty")
+        if len(v) > MAX_MSG_LEN:
+            raise ValueError("too long")
+        return v
+
+    @field_validator("history")
+    @classmethod
+    def cap_history(cls, v: list) -> list:
+        return v[-(MAX_HISTORY_TURNS * 2):]
+
+
 def _to_openai_history(raw: list) -> list:
-    """Konvertiert Gemini-Format-History ({role, parts}) in OpenAI-Format ({role, content})."""
+    """Handles both OpenAI format {role, content} and Gemini format {role, parts}."""
     result = []
     for turn in raw:
         if not isinstance(turn, dict):
             continue
         role = turn.get("role")
-        parts = turn.get("parts", [])
         if role == "model":
             role = "assistant"
         if role not in ("user", "assistant"):
             continue
-        if isinstance(parts, list) and parts:
-            content = parts[0].get("text", "") if isinstance(parts[0], dict) else str(parts[0])
-        elif isinstance(parts, str):
-            content = parts
-        else:
-            continue
+        # OpenAI format: {role, content}
+        content = turn.get("content", "")
+        if not content:
+            # Gemini format: {role, parts: [{text: "..."}]}
+            parts = turn.get("parts", [])
+            if isinstance(parts, list) and parts:
+                content = parts[0].get("text", "") if isinstance(parts[0], dict) else str(parts[0])
+            elif isinstance(parts, str):
+                content = parts
+        content = str(content).strip()[:MAX_HISTORY_MSG_LEN]
         if content:
             result.append({"role": role, "content": content})
     return result
 
 
-class ChatRequest(BaseModel):
-    message: str
-    history: list = []
-
-
+# ── Endpoints ──────────────────────────────────────────────────────────────────
 @app.post("/chat")
 async def chat(req: ChatRequest, request: Request):
-    ip = request.client.host if request.client else "unknown"
-
-    if not check_rate_limit(ip):
+    ip = _real_ip(request)
+    if not _check_rate_limit(ip):
         raise HTTPException(429, "Zu viele Anfragen, bitte kurz warten.")
 
-    msg = req.message.strip()
-    if not msg:
-        raise HTTPException(400, "Leere Nachricht.")
-    if len(msg) > 600:
-        raise HTTPException(400, "Nachricht zu lang (max. 600 Zeichen).")
-
-    history = _to_openai_history(req.history[-6:])
-
-    messages = [{"role": "system", "content": SYSTEM_PROMPT}] + history + [{"role": "user", "content": msg}]
+    history = _to_openai_history(req.history)
+    messages = [{"role": "system", "content": SYSTEM_PROMPT}] + history + [
+        {"role": "user", "content": req.message}
+    ]
 
     try:
         completion = client.chat.completions.create(
@@ -116,12 +161,11 @@ async def chat(req: ChatRequest, request: Request):
             max_tokens=300,
             temperature=0.7,
         )
-        reply = completion.choices[0].message.content
-        return {"reply": reply, "ok": True}
+        return {"reply": completion.choices[0].message.content, "ok": True}
     except Exception:
         raise HTTPException(500, "Antwort konnte nicht abgerufen werden.")
 
 
 @app.get("/health")
 async def health():
-    return {"status": "ok", "backend": "groq/llama-3.1-8b-instant"}
+    return {"status": "ok"}
