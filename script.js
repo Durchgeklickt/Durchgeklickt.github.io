@@ -133,6 +133,32 @@
     if (form && success) { form.hidden = true; success.hidden = false; }
   }
 
+  /* ── Capacity Bar Animation ──────────────────────────────────────────────── */
+  var capBarFill = document.querySelector(".cap-bar-fill");
+  if (capBarFill && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        capBarFill.classList.add("cap-bar-animate");
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.5 }).observe(capBarFill);
+  }
+
+  /* ── FAQ Card hover tilt (desktop only) ─────────────────────────────────── */
+  if (!reduced && window.matchMedia("(hover: hover)").matches) {
+    document.querySelectorAll(".faq-card").forEach(function (card) {
+      card.addEventListener("mousemove", function (e) {
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform =
+          "perspective(800px) rotateY(" + (x * 4) + "deg) rotateX(" + (-y * 4) + "deg) translateY(-5px)";
+      });
+      card.addEventListener("mouseleave", function () { card.style.transform = ""; });
+    });
+  }
+
 })();
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -251,22 +277,54 @@
     modal.hidden = false;
     modal.style.display = "flex";
     modal.focus();
-    // Anime.js Herzchen-Burst beim Öffnen
+
+    // Confetti burst — Hannah Montana energy 🎉
+    if (typeof confetti !== "undefined") {
+      var colors = ["#ff69b4", "#ff007f", "#ffd700", "#da70d6", "#ff1493", "#fff"];
+      confetti({ particleCount: 140, spread: 90, origin: { y: 0.55 }, colors: colors, scalar: 1.2 });
+      setTimeout(function () {
+        confetti({ particleCount: 70, spread: 130, origin: { y: 0.4, x: 0.15 }, colors: colors });
+      }, 350);
+      setTimeout(function () {
+        confetti({ particleCount: 70, spread: 130, origin: { y: 0.4, x: 0.85 }, colors: colors });
+      }, 650);
+      setTimeout(function () {
+        confetti({ particleCount: 50, spread: 60, origin: { y: 0.3 }, colors: colors, shapes: ["star"] });
+      }, 1000);
+    }
+
+    // Anime.js entrance
     if (typeof anime !== "undefined") {
+      anime({
+        targets: ".sophia-box",
+        scale: [0.7, 1.04, 1],
+        opacity: [0, 1],
+        duration: 700,
+        easing: "easeOutBack"
+      });
       anime({
         targets: ".sophia-headline",
         scale: [0.5, 1.08, 1],
         opacity: [0, 1],
         duration: 600,
+        delay: 200,
         easing: "easeOutBack"
       });
       anime({
         targets: ".sh",
-        translateY: [50, 0],
+        translateY: [60, 0],
         opacity: [0, 1],
-        delay: anime.stagger(80, { start: 300 }),
+        delay: anime.stagger(80, { start: 400 }),
         duration: 500,
         easing: "easeOutCubic"
+      });
+      anime({
+        targets: ".sophia-pill",
+        scale: [0, 1],
+        opacity: [0, 1],
+        delay: anime.stagger(100, { start: 600 }),
+        duration: 400,
+        easing: "easeOutBack"
       });
     }
   }
