@@ -987,3 +987,185 @@ strong { color:var(--text-primary); font-weight:600; }
 .phil-val strong { color:#fff; display:block; margin-bottom:.25rem; font-size:1rem; }
 .phil-val p { color:rgba(255,255,255,.65); font-size:.9375rem; margin:0; }
 @media (max-width:800px) { .philosophy-inner { grid-template-columns:1fr; } }
+
+/* ═══════════════════════════════════════════════════════
+   💖 EASTER EGG — Sophia (Logo 5× klicken)
+   Bewusst kitschigster 90er-Jahre-Pop-Art-Stil.
+   Comic Sans, Rainbow, Blinken, Herzchen — alles.
+═══════════════════════════════════════════════════════ */
+#sophiaModal {
+  position: fixed; inset: 0; z-index: 99999;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1rem;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', cursive !important;
+}
+#sophiaModal[hidden] { display: none !important; }
+
+.sophia-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(-45deg, #ff6ec7, #ff9900, #ffff00, #00ff88, #00d4ff, #9900ff, #ff6ec7);
+  background-size: 400% 400%;
+  animation: sophia-bg 2.5s ease infinite;
+  opacity: .96;
+}
+@keyframes sophia-bg {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.sophia-box {
+  position: relative; z-index: 1;
+  width: min(460px, 100%);
+  background: #fff;
+  border: 5px solid #ff69b4;
+  box-shadow: 0 0 0 3px #ffff00, 0 0 0 7px #ff1493,
+              6px 6px 0 #800080, 16px 16px 40px rgba(255,20,147,.45);
+  animation: sophia-pop .4s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes sophia-pop {
+  from { transform: scale(0) rotate(-8deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0deg);  opacity: 1; }
+}
+
+/* 90s Windows-style title bar */
+.sophia-titlebar {
+  background: linear-gradient(90deg, #000080, #1084d0);
+  color: #fff;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .35rem .6rem;
+  font-family: 'Comic Sans MS', cursive !important;
+  font-size: .8rem; font-weight: 700;
+}
+.sophia-x {
+  background: #c0c0c0; color: #000; border: 2px outset #fff;
+  font-weight: 900; font-size: .75rem;
+  padding: 0 .4rem; cursor: pointer; line-height: 1.4;
+  font-family: inherit !important;
+}
+.sophia-x:hover { background: #ff4444; color: #fff; }
+
+.sophia-body { padding: 1.2rem 1.4rem 1.4rem; text-align: center; }
+
+.sophia-stars {
+  font-size: 1rem; letter-spacing: .35em;
+  animation: sophia-spread 1.5s ease-in-out infinite alternate;
+  margin-bottom: .5rem; display: block;
+}
+@keyframes sophia-spread {
+  from { letter-spacing: .2em; }
+  to   { letter-spacing: .6em; }
+}
+
+.sophia-congrats {
+  font-family: 'Comic Sans MS', cursive !important;
+  font-size: 1rem; font-weight: 900; color: #cc0066;
+  animation: sophia-blink .7s step-end infinite;
+  margin-bottom: .1rem;
+}
+.sophia-congrats-sub {
+  font-family: 'Comic Sans MS', cursive !important;
+  font-size: .85rem; color: #800080; margin-bottom: .6rem;
+}
+@keyframes sophia-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.sophia-headline {
+  font-family: 'Comic Sans MS', cursive !important;
+  font-size: clamp(2rem, 8vw, 3rem) !important;
+  font-weight: 900 !important; line-height: 1.1 !important;
+  margin: .3rem 0 .5rem !important;
+  color: #ff1493;
+  text-shadow:
+    3px  3px 0 #ffff00,
+    5px  5px 0 #ff8800,
+    7px  7px 0 #800080,
+   -2px -2px 0 #00ccff;
+  animation: sophia-wobble 1.2s ease-in-out infinite alternate;
+  letter-spacing: .04em;
+}
+@keyframes sophia-wobble {
+  from { transform: rotate(-2deg) scale(1);   }
+  to   { transform: rotate( 2deg) scale(1.05); }
+}
+
+.sophia-rainbow {
+  font-family: 'Comic Sans MS', cursive !important;
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  font-weight: 900; line-height: 1.4;
+  background: linear-gradient(90deg,
+    #ff0000, #ff7700, #ffff00, #00cc00, #0099ff, #cc00ff, #ff0055, #ff0000);
+  background-size: 300% auto;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: sophia-shine 1.8s linear infinite;
+  margin: .5rem 0 .8rem;
+}
+@keyframes sophia-shine {
+  from { background-position:   0% center; }
+  to   { background-position: 300% center; }
+}
+
+/* Floating hearts */
+.sophia-hearts-row {
+  position: relative; height: 55px; margin: .3rem 0;
+}
+.sh {
+  position: absolute; font-size: 1.5rem;
+  animation: sophia-float 1.8s ease-in-out infinite;
+}
+.sh1 { left:  2%; animation-duration: 1.7s; animation-delay: 0s;    }
+.sh2 { left: 18%; animation-duration: 2.1s; animation-delay: .25s;  }
+.sh3 { left: 36%; animation-duration: 1.5s; animation-delay: .5s;   }
+.sh4 { left: 54%; animation-duration: 2.0s; animation-delay: .75s;  }
+.sh5 { left: 70%; animation-duration: 1.8s; animation-delay: 1s;    }
+.sh6 { left: 86%; animation-duration: 1.6s; animation-delay: .4s;   }
+@keyframes sophia-float {
+  0%   { transform: translateY(40px) scale(.7); opacity: 0; }
+  45%  { transform: translateY(8px)  scale(1.3); opacity: 1; }
+  100% { transform: translateY(-18px) scale(.7); opacity: 0; }
+}
+
+.sophia-sig {
+  font-family: 'Comic Sans MS', cursive !important;
+  font-size: 1.1rem !important; font-style: italic;
+  color: #cc0066 !important; font-weight: 700;
+  margin: .4rem 0 .6rem !important;
+}
+
+.sophia-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffff00, #ff8800);
+  color: #800000;
+  font-family: 'Comic Sans MS', cursive !important;
+  font-weight: 900; font-size: .8rem;
+  padding: .3rem .9rem;
+  border: 3px ridge #ff00ff;
+  margin-bottom: .8rem;
+  letter-spacing: .05em; text-transform: uppercase;
+  animation: sophia-wobble 1s ease-in-out infinite alternate;
+}
+
+.sophia-close-btn {
+  display: block; width: 100%;
+  background: linear-gradient(135deg, #ff69b4, #800080) !important;
+  color: #fff !important; border: 3px solid #ffff00 !important;
+  font-family: 'Comic Sans MS', cursive !important;
+  font-size: .85rem !important; font-weight: 900 !important;
+  padding: .55rem 1rem !important;
+  cursor: pointer; margin-bottom: .5rem;
+  box-shadow: 3px 3px 0 #000080;
+  transition: transform .1s, box-shadow .1s;
+}
+.sophia-close-btn:hover {
+  transform: translate(2px, 2px); box-shadow: 1px 1px 0 #000080;
+}
+
+.sophia-blink {
+  font-family: 'Comic Sans MS', cursive !important;
+  font-size: .8rem !important; color: darkorange !important;
+  animation: sophia-blink 1s step-end infinite;
+  margin: 0 !important;
+}
