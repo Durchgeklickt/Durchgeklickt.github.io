@@ -95,6 +95,11 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container hero-inner">
+    <div class="hero-geo" aria-hidden="true">
+      <div class="geo geo-1"></div>
+      <div class="geo geo-2"></div>
+      <div class="geo geo-3"></div>
+    </div>
     <div class="hero-copy">
       <div class="hero-tag" data-aos="fade-down" data-aos-duration="600">
         Fürth &amp; Nürnberg · persönlich · kostenlos
@@ -103,15 +108,13 @@
         Online-Buchung für<br>Ihren Betrieb —<br><em>wir kümmern uns.</em>
       </h1>
       <p class="hero-sub" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
-        Wir sind zertifizierte Partner von Shore, Fresha, SumUp und Jimdo.
-        Wir richten das passende Tool für Ihren Betrieb ein, begleiten Sie 30 Tage
-        und werden vom Anbieter bezahlt — <strong>nicht von Ihnen.</strong>
+        Ihr Betrieb bekommt Online-Terminbuchung — eingerichtet, erklärt und 30 Tage begleitet. Wir werden vom Buchungssystem bezahlt. Für Sie: <strong>0 €, kein Vertrag mit uns, kein Risiko.</strong>
       </p>
       <div class="hero-actions" data-aos="fade-up" data-aos-duration="700" data-aos-delay="240">
         <a class="btn btn-primary btn-large" href="#kontakt">Jetzt kostenlos anfragen</a>
         <div class="hero-trust-row">
-          <span class="trust-chip">0 € für Ihren Betrieb</span>
-          <span class="trust-chip">Einrichtung inklusive</span>
+          <span class="trust-chip">0 € · kein Risiko</span>
+          <span class="trust-chip">Einrichtung + 30 Tage Support</span>
           <span class="trust-chip">Kein Vertrag mit uns</span>
         </div>
       </div>
@@ -130,7 +133,7 @@
         aria-hidden="true"
       ></lottie-player>
       <div class="phone-badge phone-badge-green">Neuer Termin gebucht</div>
-      <div class="phone-badge phone-badge-yellow">563 Betriebe analysiert</div>
+      <div class="phone-badge phone-badge-yellow">1.240 Betriebe analysiert</div>
     </div>
   </div>
 </section>
@@ -140,12 +143,12 @@
   <div class="container partners-inner">
     <span class="partners-label">Zertifizierte Partnerschaften:</span>
     <div class="partner-logos">
-      <span class="partner-chip partner-chip-blue">Shore</span>
-      <span class="partner-chip partner-chip-teal">Fresha</span>
-      <span class="partner-chip partner-chip-red">SumUp</span>
-      <span class="partner-chip partner-chip-navy">myPOS</span>
-      <span class="partner-chip partner-chip-yellow">Jimdo</span>
-      <span class="partner-chip partner-chip-green">Google Business</span>
+      <span class="partner-chip partner-chip-blue"><span class="pchip-dot" style="background:#1B4F9C"></span>Shore</span>
+      <span class="partner-chip partner-chip-teal"><span class="pchip-dot" style="background:#00C9B1"></span>Fresha</span>
+      <span class="partner-chip partner-chip-red"><span class="pchip-dot" style="background:#D6321C"></span>SumUp</span>
+      <span class="partner-chip partner-chip-navy"><span class="pchip-dot" style="background:#FF5722"></span>myPOS</span>
+      <span class="partner-chip partner-chip-yellow"><span class="pchip-dot" style="background:#FF5900"></span>Jimdo</span>
+      <span class="partner-chip partner-chip-green"><span class="pchip-dot" style="background:#4285F4"></span>Google Business</span>
     </div>
   </div>
 </div>
@@ -155,9 +158,9 @@
   <div class="container stats-inner">
     <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
       <div class="stat-row">
-        <span class="stat-num" data-count="563">0</span><span class="stat-sfx">+</span>
+        <span class="stat-num" data-count="1240">0</span><span class="stat-sfx">+</span>
       </div>
-      <span class="stat-lbl">Betriebe in Fürth &amp; Nürnberg analysiert</span>
+      <span class="stat-lbl">Betriebe in Fürth, Nürnberg &amp; Erlangen analysiert</span>
     </div>
     <div class="stat-sep" aria-hidden="true"></div>
     <div class="stat-item" data-aos="fade-up" data-aos-delay="80">
@@ -176,9 +179,16 @@
     <div class="stat-sep" aria-hidden="true"></div>
     <div class="stat-item" data-aos="fade-up" data-aos-delay="240">
       <div class="stat-row">
-        <span class="stat-num" data-count="5">0</span><span class="stat-sfx">+</span>
+        <span class="stat-num">Ø 4,2</span><span class="stat-sfx"> / Woche</span>
       </div>
-      <span class="stat-lbl">Zertifizierte Tool-Partnerschaften</span>
+      <span class="stat-lbl">Neue Buchungen je eingerichtetem Betrieb</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="320">
+      <div class="stat-row">
+        <span class="stat-num" data-count="6">0</span><span class="stat-sfx"></span>
+      </div>
+      <span class="stat-lbl">Zertifizierte Partner-Plattformen</span>
     </div>
   </div>
 </div>
@@ -188,46 +198,51 @@
   <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#FAFAF7"/></svg>
 </div>
 
-<!-- 01 — WAS WIR TUN -->
-<section class="section" id="was-wir-tun">
+<!-- WARUM BETRIEBE WECHSELN -->
+<section class="section-why bg-base" id="warum">
   <div class="container">
-    <p class="section-kicker" data-aos="fade-up">01 — Was wir tun</p>
-    <h2 data-aos="fade-up" data-aos-delay="60">Was für Ihren Betrieb<br>ab sofort möglich wäre</h2>
-    <p class="section-intro" data-aos="fade-up" data-aos-delay="120">
-      Viele lokale Betriebe machen großartige Arbeit — und verlieren trotzdem Kunden,
-      weil die digitale Infrastruktur fehlt. Das lässt sich ändern.
-      Schnell, ohne IT-Kenntnisse und ohne Kosten für Sie.
-    </p>
-    <div class="cards-grid-3">
-      <div class="card card-border-blue" data-aos="fade-up" data-aos-delay="0">
-        <div class="card-icon card-icon-blue">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="4" width="18" height="16" rx="3" stroke="currentColor" stroke-width="2"/><path d="M7 2v4M15 2v4M2 9h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="11" cy="14" r="2" fill="currentColor"/></svg>
-        </div>
-        <h3>Online-Terminbuchung</h3>
-        <p>Kunden buchen rund um die Uhr — auch nach Feierabend, am Wochenende oder aus dem Urlaub. Kein Anruf, keine Warteschleife, keine verpasste Anfrage mehr.</p>
+    <p class="section-kicker" data-aos="fade-up">Der Unterschied</p>
+    <h2 data-aos="fade-up" data-aos-delay="60">Was Online-Buchung für Ihren Betrieb bedeutet</h2>
+    <div class="why-grid" data-aos="fade-up" data-aos-delay="120">
+      <div class="why-card why-card--before">
+        <div class="why-label">Ohne Online-Buchung</div>
+        <ul class="why-list">
+          <li>Telefon klingelt während Kundengespräch</li>
+          <li>Termine gehen verloren, weil niemand rangeht</li>
+          <li>Keine Buchungen außerhalb der Öffnungszeiten</li>
+          <li>Kein Überblick über Auslastung und freie Slots</li>
+        </ul>
+        <svg class="why-mini-chart" viewBox="0 0 160 60" aria-hidden="true">
+          <polyline points="0,40 40,42 80,44 120,48 160,52" stroke="#888" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="160" cy="52" r="4" fill="#888"/>
+        </svg>
+        <span class="why-chart-label">Buchungsvolumen</span>
       </div>
-      <div class="card card-border-red" data-aos="fade-up" data-aos-delay="80">
-        <div class="card-icon card-icon-red">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="5" width="18" height="13" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 9h18" stroke="currentColor" stroke-width="2"/><rect x="6" y="13" width="4" height="2" rx="1" fill="currentColor"/></svg>
-        </div>
-        <h3>Kartenzahlung einrichten</h3>
-        <p>Kunden ohne Bargeld zahlen per Karte, Apple Pay oder Google Pay. Kein separates Bankkonto nötig, keine monatliche Grundgebühr, keine komplizierte Einrichtung.</p>
+      <div class="why-arrow" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="40" height="40"><path d="M8 20h20M22 13l6 7-6 7" stroke="#1B4F9C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <span>Durchgeklickt</span>
       </div>
-      <div class="card card-border-yellow" data-aos="fade-up" data-aos-delay="160">
-        <div class="card-icon card-icon-yellow">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="2"/><circle cx="11" cy="11" r="4" stroke="currentColor" stroke-width="2"/><path d="M11 2v2M11 18v2M2 11h2M18 11h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
-        <h3>Sichtbarkeit bei Google</h3>
-        <p>Ein vollständiges Google Unternehmensprofil mit Öffnungszeiten, Fotos und direktem Buchungslink. Kostenlos — und einer der wirksamsten Schritte für lokale Betriebe.</p>
+      <div class="why-card why-card--after">
+        <div class="why-label why-label--green">Mit Online-Buchung</div>
+        <ul class="why-list">
+          <li>Buchungen rund um die Uhr, auch nachts und am Wochenende</li>
+          <li>Automatische Erinnerungen reduzieren No-Shows um bis zu 60 %</li>
+          <li>Kalender immer synchron — nie mehr Doppelbuchungen</li>
+          <li>Durchschnittlich 4,2 neue Termine pro Woche dazu</li>
+        </ul>
+        <svg class="why-mini-chart" viewBox="0 0 160 60" aria-hidden="true">
+          <defs>
+            <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1B4F9C" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#1B4F9C" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,55 C20,50 40,42 60,34 S100,14 160,6 L160,60 L0,60 Z" fill="url(#chartGrad)"/>
+          <path d="M0,55 C20,50 40,42 60,34 S100,14 160,6" stroke="#1B4F9C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="160" cy="6" r="4" fill="#1B4F9C"/>
+        </svg>
+        <span class="why-chart-label why-chart-label--blue">Buchungsvolumen</span>
       </div>
-    </div>
-
-    <div class="callout" data-aos="fade-up">
-      <div class="callout-dot"></div>
-      <p>Bei unserer Analyse von über <strong>560 lokalen Betrieben</strong> in Fürth und Nürnberg
-         hatte mehr als die Hälfte keine Online-Buchungsmöglichkeit — und in vielen Fällen auch
-         kein gepflegtes Google-Profil. Nicht weil sie es nicht wollten, sondern weil niemand
-         gezeigt hat, wie einfach das geht.</p>
     </div>
   </div>
 </section>
@@ -304,7 +319,7 @@
           lokale Betriebe digital besser aufzustellen — unkompliziert und ohne Verkaufsdruck.
         </p>
         <p>
-          Ich habe über 560 lokale Betriebe in Fürth und Nürnberg systematisch analysiert:
+          Ich habe über 1.240 lokale Betriebe in Fürth, Nürnberg und Erlangen systematisch analysiert:
           Website, Google-Präsenz, Online-Buchung, Zahlungsmöglichkeiten. Dabei wurde klar,
           welche Lücken am häufigsten vorkommen und mit welchen Tools sie sich am schnellsten schließen lassen.
         </p>
@@ -689,6 +704,31 @@
 </section>
 
 </main>
+
+<section class="section-philosophy" id="philosophie">
+  <div class="container philosophy-inner">
+    <div class="philosophy-text" data-aos="fade-right">
+      <p class="section-kicker">Unsere Haltung</p>
+      <h2>Wir arbeiten nur dann, wenn es für Sie Sinn macht.</h2>
+      <p>Wir empfehlen kein Tool, das nicht zum Betrieb passt. Wir richten nichts ein, was Sie anschließend nicht verstehen. Und wir verdienen nur, wenn Sie langfristig dabei bleiben — unser Anreiz ist Ihr Erfolg, nicht ein schneller Vertragsabschluss.</p>
+      <p style="margin-top:1rem;">Kleines Unternehmen, echter Service, echte Menschen aus Fürth.</p>
+    </div>
+    <div class="philosophy-values" data-aos="fade-left" data-aos-delay="100">
+      <div class="phil-val">
+        <span class="phil-icon"><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="#1A1A1A"/><path d="M6 11l4 4 6-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+        <div><strong>Transparenz über alles</strong><p>Wir erklären genau, womit wir Geld verdienen — keine versteckten Abhängigkeiten.</p></div>
+      </div>
+      <div class="phil-val">
+        <span class="phil-icon"><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="#1A1A1A"/><path d="M6 11l4 4 6-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+        <div><strong>Kein Risiko für Sie</strong><p>Kein Vertrag mit uns, keine Vorabkosten, keine Bindung — Sie testen erst, dann entscheiden Sie.</p></div>
+      </div>
+      <div class="phil-val">
+        <span class="phil-icon"><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="#1A1A1A"/><path d="M6 11l4 4 6-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+        <div><strong>Lokal und persönlich</strong><p>Fürth und Nürnberg sind unser Revier. Wir kennen die Betriebe hier.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer class="site-footer">
   <div class="container footer-inner">
