@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Durchgeklickt">
+  <!-- Rounded square background -->
+  <rect x="4" y="4" width="92" height="92" rx="18" fill="#1A1A1A"/>
+  <!-- White "dk" lettermark -->
+  <text x="50" y="67" text-anchor="middle" font-family="'Century Gothic','Futura',sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-2">dk</text>
+  <!-- Red click-dot accent -->
+  <circle cx="76" cy="30" r="8" fill="#D6321C"/>
+  <line x1="76" y1="30" x2="84" y2="44" stroke="#D6321C" stroke-width="3" stroke-linecap="round"/>
+</svg>

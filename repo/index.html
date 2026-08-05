@@ -6,7 +6,14 @@
 <title>Durchgeklickt — Kostenlose Digital-Analyse für lokale Betriebe in Fürth &amp; Nürnberg</title>
 <meta name="description" content="Kostenlose Digital-Analyse für Friseure, Bäckereien, Praxen &amp; Handwerksbetriebe in Fürth und Nürnberg. Online-Terminbuchung einrichten — 0€ Kosten für Ihren Betrieb.">
 <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
+
+<!-- Fonts: Syne (Display/Bold) + DM Sans (Body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="styles.css">
+
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta property="og:site_name" content="Durchgeklickt">
@@ -17,6 +24,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,13 +32,7 @@
   "name": "Durchgeklickt",
   "founder": { "@type": "Person", "name": "Daniel Schweiger" },
   "description": "Kostenlose Digital-Analyse und Vermittlung zu Online-Terminbuchungs-Tools für lokale Betriebe in Fürth und Nürnberg.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Lehmusstraße 35",
-    "postalCode": "90766",
-    "addressLocality": "Fürth",
-    "addressCountry": "DE"
-  },
+  "address": { "@type": "PostalAddress", "streetAddress": "Lehmusstraße 35", "postalCode": "90766", "addressLocality": "Fürth", "addressCountry": "DE" },
   "areaServed": ["Fürth", "Nürnberg", "Erlangen"],
   "email": "D.Durchgeklickt@gmail.com",
   "url": "https://www.durchgeklickt.com"
@@ -41,560 +43,627 @@
 
 <a class="skip-link" href="#kontakt">Direkt zum Kontakt</a>
 
+<!-- ═══ HEADER ═══ -->
 <header class="site-header">
   <div class="container header-inner">
     <a class="logo" href="#top">
-      <img src="assets/logo-mark.svg" alt="" width="34" height="34">
+      <img src="assets/logo-mark.svg" alt="" width="38" height="38">
       <span class="logo-word">durchgeklickt</span>
     </a>
     <nav class="main-nav" aria-label="Hauptnavigation">
       <a href="#ueber-uns">Über uns</a>
       <a href="#leistungen">Leistungen</a>
-      <a href="#ablauf">Ablauf</a>
+      <a href="#werkzeuge">Tools</a>
       <a href="#faq">FAQ</a>
       <a href="#kontakt" class="nav-cta">Kostenlose Analyse</a>
     </nav>
-    <button class="nav-burger" aria-label="Menü öffnen" aria-expanded="false" id="navBurger">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </header>
 
+<!-- ═══ TICKER ═══ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Kostenlose Digital-Analyse</span><span class="tick-dot">·</span>
+    <span>Shore & Fresha Partner</span><span class="tick-dot">·</span>
+    <span>SumUp Zahlungslösungen</span><span class="tick-dot">·</span>
+    <span>0 € für Ihren Betrieb</span><span class="tick-dot">·</span>
+    <span>Lokal aus Fürth</span><span class="tick-dot">·</span>
+    <span>Online-Terminbuchung</span><span class="tick-dot">·</span>
+    <span>Jimdo Websites</span><span class="tick-dot">·</span>
+    <span>Keine Vertragsbindung</span><span class="tick-dot">·</span>
+    <span>Kostenlose Digital-Analyse</span><span class="tick-dot">·</span>
+    <span>Shore & Fresha Partner</span><span class="tick-dot">·</span>
+    <span>SumUp Zahlungslösungen</span><span class="tick-dot">·</span>
+    <span>0 € für Ihren Betrieb</span><span class="tick-dot">·</span>
+    <span>Lokal aus Fürth</span><span class="tick-dot">·</span>
+    <span>Online-Terminbuchung</span><span class="tick-dot">·</span>
+    <span>Jimdo Websites</span><span class="tick-dot">·</span>
+    <span>Keine Vertragsbindung</span><span class="tick-dot">·</span>
+  </div>
+</div>
+
 <main id="top">
 
-  <!-- ═══════════════════════════════════════════════════════
-       HERO
-  ═══════════════════════════════════════════════════════ -->
-  <section class="hero">
-    <div class="container hero-inner">
-
-      <!-- Bauhaus-Geometrie (dekorativ, rein visuell) -->
-      <div class="hero-bauhaus" aria-hidden="true">
-        <div class="hb-square"></div>
-        <div class="hb-circle"></div>
-        <div class="hb-triangle"></div>
-        <div class="hb-line hb-line-1"></div>
-        <div class="hb-line hb-line-2"></div>
-      </div>
-
-      <div class="hero-copy fade-in">
-        <p class="eyebrow">Digitalberatung · Fürth &amp; Nürnberg · kostenlos</p>
-        <h1>Ihr Betrieb ist gut.<br><span class="h1-accent">Online sieht's keiner.</span></h1>
-        <p class="hero-sub">
-          Jeden Monat verlieren Betriebe in Fürth Buchungen, weil Interessenten nach 18 Uhr
-          niemanden erreichen — und dann einfach beim nächsten Anbieter mit Online-Kalender
-          landen. Wir ändern das. <strong>Kostenlos.</strong> Ohne Bürokratie.
-          Ohne dass Sie technisch versiert sein müssen.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#kontakt">Kostenlose Analyse anfragen</a>
-          <span class="zero-cost-badge">0&nbsp;€ Kosten für Ihren Betrieb</span>
+<!-- ═══════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy reveal">
+      <div class="hero-tag">Fürth &amp; Nürnberg · kostenlos · persönlich</div>
+      <h1>Ihr Betrieb ist gut.<br><em>Online sieht's keiner.</em></h1>
+      <p class="hero-sub">
+        Jeden Monat verlieren lokale Betriebe Buchungen — weil Kunden nach 18 Uhr
+        niemanden erreichen und einfach beim nächsten Online-Kalender landen.
+        Wir ändern das. <strong>Kostenlos. Ohne Bürokratie.</strong>
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#kontakt">Jetzt kostenlos anfragen</a>
+        <div class="hero-trust-row">
+          <span class="trust-chip">✓ 0 € für Sie</span>
+          <span class="trust-chip">✓ Keine Verpflichtung</span>
+          <span class="trust-chip">✓ Persönlich aus Fürth</span>
         </div>
-        <p class="hero-trust">Lokal aus Fürth · Persönliche Beratung · Keine Verpflichtung</p>
       </div>
     </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════════════════
-       STATS-LEISTE
-  ═══════════════════════════════════════════════════════ -->
-  <div class="stats-bar">
-    <div class="container stats-inner">
-      <div class="stat-item fade-in">
-        <span class="stat-number" data-count="563">0</span><span class="stat-suffix">+</span>
-        <span class="stat-label">Betriebe analysiert</span>
+    <!-- Phone Illustration -->
+    <div class="hero-visual reveal-right">
+      <svg class="phone-svg" viewBox="0 0 300 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <filter id="f-card"><feDropShadow dx="0" dy="2" stdDeviation="5" flood-color="rgba(0,0,0,0.10)"/></filter>
+          <filter id="f-notif"><feDropShadow dx="0" dy="6" stdDeviation="14" flood-color="rgba(0,0,0,0.18)"/></filter>
+          <filter id="f-phone"><feDropShadow dx="8" dy="16" stdDeviation="24" flood-color="rgba(0,0,0,0.22)"/></filter>
+          <clipPath id="screen-clip"><rect x="18" y="36" width="230" height="412" rx="22"/></clipPath>
+        </defs>
+
+        <!-- Phone body -->
+        <rect x="10" y="20" width="246" height="444" rx="38" fill="#1A1A1A" filter="url(#f-phone)"/>
+        <!-- Screen bg -->
+        <rect x="18" y="36" width="230" height="412" rx="22" fill="#F4F1EA"/>
+        <!-- Camera notch -->
+        <rect x="98" y="26" width="70" height="12" rx="6" fill="#333"/>
+        <!-- Status bar dot -->
+        <circle cx="198" cy="32" r="4" fill="#555"/>
+
+        <!-- App Header (blue) -->
+        <rect x="18" y="36" width="230" height="72" rx="0" fill="#1B4F9C" clip-path="url(#screen-clip)"/>
+        <rect x="18" y="36" width="230" height="22" rx="22" fill="#1B4F9C"/>
+        <!-- Header text placeholders -->
+        <rect x="36" y="72" width="90" height="10" rx="5" fill="rgba(255,255,255,0.65)"/>
+        <rect x="36" y="88" width="56" height="7" rx="3" fill="rgba(255,255,255,0.35)"/>
+        <!-- Plus button in header -->
+        <rect x="210" y="70" width="26" height="26" rx="8" fill="rgba(255,255,255,0.18)"/>
+        <rect x="221" y="77" width="4" height="12" rx="2" fill="white"/>
+        <rect x="217" y="81" width="12" height="4" rx="2" fill="white"/>
+
+        <!-- Day labels row -->
+        <rect x="30" y="124" width="22" height="7" rx="3" fill="#1A1A1A" opacity="0.2"/>
+        <rect x="58" y="124" width="22" height="7" rx="3" fill="#1A1A1A" opacity="0.2"/>
+        <rect x="86" y="124" width="22" height="7" rx="3" fill="#1A1A1A" opacity="0.2"/>
+        <rect x="114" y="124" width="22" height="7" rx="3" fill="#1A1A1A" opacity="0.2"/>
+        <rect x="142" y="124" width="22" height="7" rx="3" fill="#1A1A1A" opacity="0.2"/>
+        <rect x="170" y="124" width="22" height="7" rx="3" fill="#D6321C" opacity="0.3"/>
+        <rect x="198" y="124" width="22" height="7" rx="3" fill="#D6321C" opacity="0.3"/>
+
+        <!-- Calendar Row 1 -->
+        <rect x="28" y="138" width="28" height="28" rx="7" fill="#E8EFF8"/>
+        <rect x="60" y="138" width="28" height="28" rx="7" fill="#1B4F9C"/>
+        <rect x="92" y="138" width="28" height="28" rx="7" fill="#1B4F9C"/>
+        <rect x="124" y="138" width="28" height="28" rx="7" fill="#E8EFF8"/>
+        <rect x="156" y="138" width="28" height="28" rx="7" fill="#E8EFF8"/>
+        <rect x="188" y="138" width="28" height="28" rx="7" fill="rgba(214,50,28,0.12)"/>
+        <rect x="220" y="138" width="20" height="28" rx="7" fill="rgba(214,50,28,0.12)"/>
+
+        <!-- Calendar Row 2 -->
+        <rect x="28" y="172" width="28" height="28" rx="7" fill="#1B4F9C"/>
+        <rect x="60" y="172" width="28" height="28" rx="7" fill="#E8EFF8"/>
+        <rect x="92" y="172" width="28" height="28" rx="7" fill="#1B4F9C"/>
+        <rect x="124" y="172" width="28" height="28" rx="14" fill="#F5B700"/>
+        <rect x="156" y="172" width="28" height="28" rx="7" fill="#1B4F9C"/>
+        <rect x="188" y="172" width="28" height="28" rx="7" fill="#E8EFF8"/>
+        <rect x="220" y="172" width="20" height="28" rx="7" fill="rgba(214,50,28,0.12)"/>
+
+        <!-- Calendar Row 3 -->
+        <rect x="28" y="206" width="28" height="28" rx="7" fill="#E8EFF8"/>
+        <rect x="60" y="206" width="28" height="28" rx="7" fill="#1B4F9C"/>
+        <rect x="92" y="206" width="28" height="28" rx="7" fill="#E8EFF8"/>
+        <rect x="124" y="206" width="28" height="28" rx="7" fill="#1B4F9C"/>
+        <rect x="156" y="206" width="28" height="28" rx="7" fill="#1B4F9C"/>
+        <rect x="188" y="206" width="28" height="28" rx="7" fill="#E8EFF8"/>
+        <rect x="220" y="206" width="20" height="28" rx="7" fill="rgba(214,50,28,0.12)"/>
+
+        <!-- Divider -->
+        <rect x="28" y="246" width="204" height="1" rx="1" fill="rgba(0,0,0,0.08)"/>
+
+        <!-- Appointment card 1 -->
+        <rect x="28" y="258" width="204" height="62" rx="12" fill="#fff" filter="url(#f-card)"/>
+        <rect x="28" y="258" width="5" height="62" rx="2" fill="#1B4F9C"/>
+        <rect x="42" y="270" width="110" height="9" rx="4" fill="#1A1A1A"/>
+        <rect x="42" y="285" width="72" height="7" rx="3" fill="#1A1A1A" opacity="0.32"/>
+        <rect x="42" y="298" width="88" height="7" rx="3" fill="#1B4F9C" opacity="0.4"/>
+        <!-- Time badge -->
+        <rect x="192" y="270" width="32" height="18" rx="6" fill="#E8EFF8"/>
+        <rect x="196" y="276" width="24" height="6" rx="3" fill="#1B4F9C" opacity="0.6"/>
+
+        <!-- Appointment card 2 -->
+        <rect x="28" y="328" width="204" height="54" rx="12" fill="#fff" filter="url(#f-card)"/>
+        <rect x="28" y="328" width="5" height="54" rx="2" fill="#D6321C"/>
+        <rect x="42" y="340" width="86" height="9" rx="4" fill="#1A1A1A"/>
+        <rect x="42" y="355" width="60" height="7" rx="3" fill="#1A1A1A" opacity="0.32"/>
+        <rect x="192" y="340" width="32" height="18" rx="6" fill="rgba(214,50,28,0.1)"/>
+        <rect x="196" y="346" width="24" height="6" rx="3" fill="#D6321C" opacity="0.5"/>
+
+        <!-- New appointment card 3 -->
+        <rect x="28" y="390" width="204" height="44" rx="12" fill="#fff" filter="url(#f-card)"/>
+        <rect x="28" y="390" width="5" height="44" rx="2" fill="#F5B700"/>
+        <rect x="42" y="402" width="78" height="9" rx="4" fill="#1A1A1A"/>
+        <rect x="42" y="417" width="52" height="7" rx="3" fill="#1A1A1A" opacity="0.32"/>
+
+        <!-- Home bar -->
+        <rect x="115" y="434" width="70" height="4" rx="2" fill="rgba(0,0,0,0.15)"/>
+
+        <!-- Floating notification -->
+        <rect x="172" y="0" width="160" height="48" rx="24" fill="#F5B700" filter="url(#f-notif)"/>
+        <circle cx="196" cy="24" r="14" fill="#1A1A1A"/>
+        <rect x="191" y="19" width="4" height="7" rx="2" fill="#F5B700"/>
+        <rect x="191" y="28" width="4" height="4" rx="2" fill="#F5B700"/>
+        <rect x="210" y="15" width="96" height="8" rx="4" fill="#1A1A1A" opacity="0.75"/>
+        <rect x="210" y="27" width="68" height="7" rx="3" fill="#1A1A1A" opacity="0.4"/>
+      </svg>
+
+      <!-- Floating badge on visual -->
+      <div class="phone-badge phone-badge-green">✓ Neuer Termin</div>
+      <div class="phone-badge phone-badge-yellow">563 analysiert</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     STATS
+══════════════════════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="container stats-inner">
+    <div class="stat-item reveal">
+      <span class="stat-num" data-count="563">0</span><span class="stat-sfx">+</span>
+      <span class="stat-lbl">Betriebe analysiert</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="stat-item reveal">
+      <span class="stat-num">0</span><span class="stat-sfx"> €</span>
+      <span class="stat-lbl">Kosten für Ihren Betrieb</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="stat-item reveal">
+      <span class="stat-num" data-count="30">0</span><span class="stat-sfx"> Tage</span>
+      <span class="stat-lbl">Persönliche Nachbetreuung</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="stat-item reveal">
+      <span class="stat-num" data-count="5">0</span><span class="stat-sfx">+</span>
+      <span class="stat-lbl">Partner-Tools</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     01 — PROBLEM
+══════════════════════════════════════════════════════ -->
+<section class="section" id="problem">
+  <div class="container">
+    <p class="section-kicker reveal">01 — Das Problem</p>
+    <h2 class="reveal">Was es kostet, wenn sich<br>nichts ändert</h2>
+    <p class="section-intro reveal">
+      Die meisten Betriebe verlieren keine Kunden wegen schlechter Arbeit —
+      sondern weil sie online nicht zu finden oder zu buchen sind.
+    </p>
+    <div class="cards-grid-3">
+      <div class="card card-border-red reveal">
+        <div class="card-icon card-icon-red">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="2"/><path d="M9 9l10 10M19 9L9 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Verpasste Buchungen</h3>
+        <p>Wer nach 18 Uhr niemanden erreicht, bucht beim nächsten Anbieter mit Online-Kalender — <strong>ohne dass Sie es je erfahren.</strong></p>
       </div>
-      <div class="stat-divider" aria-hidden="true"></div>
-      <div class="stat-item fade-in">
-        <span class="stat-number stat-zero">0</span><span class="stat-suffix">&nbsp;€</span>
-        <span class="stat-label">Kosten für Ihren Betrieb</span>
+      <div class="card card-border-blue reveal">
+        <div class="card-icon card-icon-blue">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><ellipse cx="14" cy="14" rx="12" ry="8" stroke="currentColor" stroke-width="2"/><circle cx="14" cy="14" r="4" stroke="currentColor" stroke-width="2"/><path d="M2 14s4-8 12-8 12 8 12 8-4 8-12 8-12-8-12-8z" stroke="none" fill="none"/><line x1="4" y1="4" x2="24" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Unsichtbar bei Google</h3>
+        <p>Kunden landen zuerst bei Betrieben mit gepflegtem Online-Auftritt — <strong>unabhängig davon, wer die bessere Arbeit macht.</strong></p>
       </div>
-      <div class="stat-divider" aria-hidden="true"></div>
-      <div class="stat-item fade-in">
-        <span class="stat-number" data-count="30">0</span><span class="stat-suffix">&nbsp;Tage</span>
-        <span class="stat-label">Persönliche Nachbetreuung</span>
+      <div class="card card-border-yellow reveal">
+        <div class="card-icon card-icon-yellow">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3l2.5 8H24l-6.5 4.5 2.5 8L14 19l-6 4.5 2.5-8L4 11h7.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Konkurrenz gewinnt</h3>
+        <p>Ein Nachbarbetrieb mit Online-Buchung wirkt moderner — <strong>gerade bei jüngeren Kunden entscheidet das, wo gebucht wird.</strong></p>
       </div>
-      <div class="stat-divider" aria-hidden="true"></div>
-      <div class="stat-item fade-in">
-        <span class="stat-number stat-zero">5</span><span class="stat-suffix">+</span>
-        <span class="stat-label">Partner-Tools verfügbar</span>
+    </div>
+
+    <div class="callout reveal">
+      <div class="callout-icon">📊</div>
+      <p>In Fürth und Nürnberg haben wir <strong>über 560 lokale Betriebe</strong> analysiert.
+         Mehr als die Hälfte hatte keine Online-Buchungsmöglichkeit — und wusste es nicht einmal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     02 — ÜBER UNS
+══════════════════════════════════════════════════════ -->
+<section class="section section-warm" id="ueber-uns">
+  <div class="container">
+    <p class="section-kicker reveal">02 — Wer wir sind</p>
+    <div class="about-layout">
+      <div class="about-visual reveal">
+        <div class="about-portrait-wrap">
+          <div class="about-portrait">
+            <div class="portrait-monogram">DS</div>
+          </div>
+          <div class="about-portrait-deco" aria-hidden="true">
+            <div class="deco-square"></div>
+            <div class="deco-circle"></div>
+          </div>
+        </div>
+        <div class="about-name-card">
+          <strong>Daniel Schweiger</strong>
+          <span>Fürth, Bayern · Gründer</span>
+        </div>
+      </div>
+      <div class="about-copy reveal">
+        <h2 class="about-h2">Ein Mensch aus Fürth.<br>Kein Konzern aus München.</h2>
+        <p class="about-lead">
+          Irgendwann fiel mir auf: Der Friseur um die Ecke macht die beste Arbeit
+          in der ganzen Straße — aber online findet ihn niemand.
+        </p>
+        <p>
+          Kein Google-Eintrag. Keine Website. Keine Möglichkeit, nach 18 Uhr einen Termin
+          zu buchen. Sein Konkurrent drei Straßen weiter, mit halb so viel Erfahrung,
+          hat eine Warteliste — weil er online buchbar ist.
+        </p>
+        <p>
+          Das hat mich gestört. Also habe ich angefangen, mir die digitale Lage lokaler
+          Betriebe systematisch anzuschauen. <strong>563 Betriebe später</strong> weiß ich
+          genau, wo die Lücken sind — und wie man sie in wenigen Tagen schließt.
+        </p>
+        <p>
+          Durchgeklickt ist kein Büro mit Dutzenden Mitarbeitern. Es ist eine Person,
+          die Ihnen ehrlich sagt, was Ihr Betrieb braucht — und was nicht.
+          <strong>Und Sie zahlen dafür keinen Cent.</strong>
+        </p>
+        <div class="values-row">
+          <div class="value-pill value-pill-red">Kein Fachchinesisch</div>
+          <div class="value-pill value-pill-blue">Keine versteckten Kosten</div>
+          <div class="value-pill value-pill-yellow">Kein Vertrag mit uns</div>
+        </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ═══════════════════════════════════════════════════════
-       01 — VERLUSTAVERSION
-  ═══════════════════════════════════════════════════════ -->
-  <section class="section section-alt" id="problem">
-    <div class="container">
-      <span class="section-index fade-in">01</span>
-      <h2 class="fade-in">Was es kostet, wenn sich nichts ändert</h2>
-      <p class="section-intro fade-in">
-        Die meisten Betriebe verlieren keine Kunden, weil ihre Arbeit schlecht ist —
-        sondern weil sie online schwer zu finden oder schwer zu buchen sind.
-      </p>
-      <div class="loss-grid">
-        <div class="loss-card loss-card-red fade-in">
-          <div class="loss-icon" aria-hidden="true">✗</div>
-          <h3>Verpasste Buchungen</h3>
-          <p>Wer nach 18 Uhr oder am Wochenende einen Termin sucht und niemanden erreicht,
-             bucht beim nächsten Anbieter mit Online-Kalender — <strong>ohne dass Sie es je erfahren.</strong></p>
-        </div>
-        <div class="loss-card loss-card-blue fade-in">
-          <div class="loss-icon" aria-hidden="true">👁</div>
-          <h3>Unsichtbar bei Google</h3>
-          <p>Kunden, die „Friseur in Fürth" oder „Zahnarzt in der Nähe" suchen, landen zuerst
-             bei Betrieben mit gepflegtem Online-Auftritt — <strong>unabhängig davon, wer die bessere Arbeit macht.</strong></p>
-        </div>
-        <div class="loss-card loss-card-yellow fade-in">
-          <div class="loss-icon" aria-hidden="true">→</div>
-          <h3>Abwanderung zur Konkurrenz</h3>
-          <p>Ein Nachbarbetrieb mit Online-Terminbuchung wirkt moderner und erreichbarer —
-             <strong>gerade bei jüngeren Kunden entscheidet das oft, wo gebucht wird.</strong></p>
-        </div>
+<!-- ═══════════════════════════════════════════════════
+     03 — FÜR WEN
+══════════════════════════════════════════════════════ -->
+<section class="section" id="leistungen">
+  <div class="container">
+    <p class="section-kicker reveal">03 — Für wen</p>
+    <h2 class="reveal">Wir kennen Ihre Branche</h2>
+    <p class="section-intro reveal">
+      Lokale Expertise statt Standardpaket: Wir kennen die typischen digitalen Lücken je Branche —
+      aus echter Recherche bei Betrieben in Fürth und Nürnberg.
+    </p>
+    <ul class="branchen-grid" role="list">
+      <li class="reveal">✂ Friseure &amp; Barbershops</li>
+      <li class="reveal">🥐 Bäckereien &amp; Konditoreien</li>
+      <li class="reveal">🦷 Zahnarztpraxen</li>
+      <li class="reveal">🐾 Tierarztpraxen</li>
+      <li class="reveal">👓 Optiker</li>
+      <li class="reveal">🥩 Metzgereien</li>
+      <li class="reveal">🔧 Sanitär &amp; Klempner</li>
+      <li class="reveal">⚡ Elektrobetriebe</li>
+      <li class="reveal">🏠 Immobilienmakler</li>
+      <li class="reveal">🎨 Maler &amp; Handwerk</li>
+      <li class="reveal">☕ Cafés &amp; Bistros</li>
+      <li class="reveal">💅 Kosmetik &amp; Nails</li>
+    </ul>
+    <p class="branchen-hint reveal">Ihre Branche ist nicht dabei? Fragen Sie trotzdem — wir sagen ehrlich, ob wir helfen können.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     04 — ABLAUF
+══════════════════════════════════════════════════════ -->
+<section class="section section-warm" id="ablauf">
+  <div class="container">
+    <p class="section-kicker reveal">04 — So läuft es ab</p>
+    <h2 class="reveal">Drei Schritte. Kein Risiko.</h2>
+    <p class="section-intro reveal">Von der ersten Nachricht bis zum laufenden Online-Kalender — in wenigen Tagen.</p>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num step-num-red">1</div>
+        <h3>Analyse anfragen</h3>
+        <p>Kurze Nachricht mit Ihrem Betriebsnamen — wir prüfen Website, Auffindbarkeit und Terminbuchung. Antwort in 1–2 Werktagen.</p>
+        <div class="step-arrow">→</div>
       </div>
-
-      <div class="problem-callout fade-in">
-        <p class="callout-text">
-          In Fürth und Nürnberg haben wir <strong>über 560 lokale Betriebe</strong> analysiert.
-          Mehr als die Hälfte hatte keine eigene Website oder keine Online-Buchungsmöglichkeit —
-          und wusste es nicht einmal.
-        </p>
+      <div class="step-card reveal">
+        <div class="step-num step-num-blue">2</div>
+        <h3>Persönlicher Vorschlag</h3>
+        <p>Sie bekommen konkrete Empfehlungen für Ihren Betrieb — kein Fachchinesisch, kein Standard-Paket.</p>
+        <div class="step-arrow">→</div>
       </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       02 — ÜBER UNS / PERSÖNLICHE GESCHICHTE
-  ═══════════════════════════════════════════════════════ -->
-  <section class="section" id="ueber-uns">
-    <div class="container">
-      <span class="section-index fade-in">02</span>
-      <h2 class="fade-in">Wer steckt dahinter</h2>
-      <div class="about-layout">
-        <div class="about-portrait fade-in" aria-hidden="true">
-          <div class="portrait-frame">
-            <div class="portrait-initials">DS</div>
-          </div>
-          <div class="portrait-badge">Daniel Schweiger</div>
-          <div class="portrait-sub">Fürth, Bayern</div>
-        </div>
-        <div class="about-copy fade-in">
-          <p class="about-lead">
-            Ich bin Daniel. Ich lebe in Fürth und kenne die Betriebe hier — nicht aus einem
-            Büro in München, sondern weil ich täglich an ihnen vorbeigehe.
-          </p>
-          <p>
-            Irgendwann ist mir aufgefallen: Der Friseur um die Ecke macht die beste Arbeit
-            in der Straße — aber online findet ihn niemand. Kein Google-Eintrag, keine Website,
-            keine Möglichkeit, nach 18 Uhr einen Termin zu buchen. Sein Konkurrent drei Straßen
-            weiter, mit halb so viel Erfahrung, hat eine Warteliste — weil er online buchbar ist.
-          </p>
-          <p>
-            Das hat mich gestört. Also habe ich angefangen, mir die digitale Lage lokaler Betriebe
-            systematisch anzuschauen. <strong>563 Betriebe später</strong> weiß ich genau, wo die
-            typischen Lücken sind — und wie man sie schließt.
-          </p>
-          <p>
-            Durchgeklickt ist kein Großkonzern, keine Agentur mit Dutzenden Mitarbeitern.
-            Es ist eine Person, die ehrlich sagt, was Ihr Betrieb braucht — und was nicht.
-            <strong>Und Sie zahlen dafür keinen Cent.</strong>
-          </p>
-          <div class="about-values">
-            <div class="av-item">
-              <span class="av-dot av-dot-red"></span>
-              <span>Kein Fachchinesisch</span>
-            </div>
-            <div class="av-item">
-              <span class="av-dot av-dot-blue"></span>
-              <span>Keine versteckten Kosten</span>
-            </div>
-            <div class="av-item">
-              <span class="av-dot av-dot-yellow"></span>
-              <span>Keine Vertragsfallen</span>
-            </div>
-          </div>
-        </div>
+      <div class="step-card step-card-dark reveal">
+        <div class="step-num step-num-yellow">3</div>
+        <h3>0 € — Sie entscheiden</h3>
+        <p>Nur wenn es passt, richten wir gemeinsam ein. Wir bekommen eine Provision vom Anbieter — für Sie entstehen keine Kosten.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══════════════════════════════════════════════════════
-       03 — FÜR WEN WIR ARBEITEN
-  ═══════════════════════════════════════════════════════ -->
-  <section class="section section-alt" id="leistungen">
-    <div class="container">
-      <span class="section-index fade-in">03</span>
-      <h2 class="fade-in">Für wen wir arbeiten</h2>
-      <p class="section-intro fade-in">
-        Lokale Expertise statt Standardpaket: Wir kennen die typischen digitalen Lücken je Branche —
-        aus echter Recherche bei Betrieben in Fürth und Nürnberg, nicht aus einer Checkliste von der Stange.
-      </p>
-      <ul class="branchen-grid" role="list">
-        <li class="fade-in">✂ Friseure &amp; Barbershops</li>
-        <li class="fade-in">🥐 Bäckereien &amp; Konditoreien</li>
-        <li class="fade-in">🦷 Zahnarztpraxen</li>
-        <li class="fade-in">🐾 Tierarztpraxen</li>
-        <li class="fade-in">👓 Optiker</li>
-        <li class="fade-in">🥩 Metzgereien</li>
-        <li class="fade-in">🔧 Sanitär &amp; Klempner</li>
-        <li class="fade-in">⚡ Elektrobetriebe</li>
-        <li class="fade-in">🏠 Immobilienmakler</li>
-        <li class="fade-in">🎨 Maler &amp; Handwerk</li>
-        <li class="fade-in">☕ Cafés &amp; Bistros</li>
-        <li class="fade-in">💅 Kosmetik &amp; Nails</li>
-      </ul>
-      <p class="branchen-footnote fade-in">
-        Ihre Branche ist nicht dabei? Fragen Sie trotzdem an — wir sagen ehrlich, ob wir helfen können.
-      </p>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       04 — 3-SCHRITTE-PROZESS
-  ═══════════════════════════════════════════════════════ -->
-  <section class="section" id="ablauf">
-    <div class="container">
-      <span class="section-index fade-in">04</span>
-      <h2 class="fade-in">So einfach läuft es ab</h2>
-      <p class="section-intro fade-in">Drei Schritte. Kein Risiko. Keine Überraschungen.</p>
-      <div class="steps-grid">
-        <div class="step-card fade-in">
-          <span class="step-number step-number-red">1</span>
-          <h3>Kostenlose Analyse anfragen</h3>
-          <p>Kurze Nachricht mit Ihrem Betriebsnamen — wir prüfen Website, Auffindbarkeit
-             und Terminbuchung Ihres Betriebs. Dauert auf unserer Seite 1–2 Werktage.</p>
-        </div>
-        <div class="step-card fade-in">
-          <span class="step-number step-number-blue">2</span>
-          <h3>Persönlicher Vorschlag</h3>
-          <p>Sie erhalten konkrete, auf Ihren Betrieb zugeschnittene Vorschläge —
-             keine Standard-Floskeln, kein Fachchinesisch. Was fehlt, was es kostet
-             (für Sie: nichts), was es bringt.</p>
-        </div>
-        <div class="step-card step-card-highlight fade-in">
-          <span class="step-number step-number-yellow">3</span>
-          <h3>Sie entscheiden — 0&nbsp;€ Kosten</h3>
-          <p>Nur wenn es für Sie passt, setzen wir gemeinsam um. Wir richten das Tool ein,
-             begleiten den ersten Monat — und werden über eine Provision des Tool-Anbieters
-             vergütet. Für Sie entstehen keine Kosten.</p>
-        </div>
+<!-- ═══════════════════════════════════════════════════
+     05 — WAS WIR BIETEN
+══════════════════════════════════════════════════════ -->
+<section class="section" id="partnerschaft">
+  <div class="container">
+    <p class="section-kicker reveal">05 — Was wir bieten</p>
+    <h2 class="reveal">Kein einmaliges Setup.<br>Wir bleiben dabei.</h2>
+    <p class="section-intro reveal">Wir wollen Ihren Betrieb noch kennen, wenn der Kalender voll ist.</p>
+    <div class="cards-grid-3">
+      <div class="card card-top-yellow reveal">
+        <div class="card-emoji">⚙️</div>
+        <h3>Einrichtung inklusive</h3>
+        <p>Wir richten das Tool für Sie ein — kein YouTube-Tutorial, kein IT-Stress. Sie müssen nur noch Termine vergeben.</p>
+      </div>
+      <div class="card card-top-blue reveal">
+        <div class="card-emoji">📞</div>
+        <h3>30 Tage Nachbetreuung</h3>
+        <p>Erster Monat mit echtem Support — damit das System wirklich läuft, nicht nur installiert ist.</p>
+      </div>
+      <div class="card card-top-red reveal">
+        <div class="card-emoji">✓</div>
+        <h3>Kein Vertrag mit uns</h3>
+        <p>Wenn es nicht passt, ist es vorbei. Wir setzen auf langfristige Beziehungen — nicht auf Knebelverträge.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══════════════════════════════════════════════════════
-       05 — LANGZEITPARTNERSCHAFT
-  ═══════════════════════════════════════════════════════ -->
-  <section class="section section-alt partnership-section" id="partnerschaft">
-    <div class="container">
-      <span class="section-index fade-in">05</span>
-      <h2 class="fade-in">Wir wollen Ihren Betrieb noch kennen,<br>wenn der Kalender voll ist</h2>
-      <p class="section-intro fade-in">
-        Kein einmaliges Setup, das Sie danach alleine lässt. Wir schauen,
-        was wirklich funktioniert — und melden uns, wenn etwas besser geht.
-      </p>
-      <div class="partnership-points">
-        <div class="pp-item fade-in">
-          <div class="pp-icon" aria-hidden="true">⚙</div>
-          <strong>Einrichtung inklusive</strong>
-          <span>Wir richten das Tool für Sie ein — kein YouTube-Tutorial, kein IT-Stress.
-                Sie müssen nur noch Termine vergeben.</span>
-        </div>
-        <div class="pp-item fade-in">
-          <div class="pp-icon" aria-hidden="true">📞</div>
-          <strong>30 Tage Nachbetreuung</strong>
-          <span>Erster Monat mit echtem Support — damit das System wirklich läuft,
-                nicht nur installiert ist.</span>
-        </div>
-        <div class="pp-item fade-in">
-          <div class="pp-icon" aria-hidden="true">✓</div>
-          <strong>Kein Vertrag mit uns</strong>
-          <span>Wenn es nicht passt, ist es vorbei. Wir setzen auf langfristige
-                Beziehungen — nicht auf Knebelverträge.</span>
-        </div>
+<!-- ═══════════════════════════════════════════════════
+     06 — WERKZEUGE
+══════════════════════════════════════════════════════ -->
+<section class="section section-warm" id="werkzeuge">
+  <div class="container">
+    <p class="section-kicker reveal">06 — Unsere Tools</p>
+    <h2 class="reveal">Werkzeuge, die wirklich funktionieren</h2>
+    <p class="section-intro reveal">Wir empfehlen nur, was wir selbst kennen und was für lokale Betriebe tatsächlich sinnvoll ist.</p>
+
+    <div class="tools-section reveal">
+      <div class="tools-label">
+        <span class="tools-cat-pill pill-blue">📅 Terminbuchung</span>
       </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       06 — WERKZEUGE
-  ═══════════════════════════════════════════════════════ -->
-  <section class="section" id="werkzeuge">
-    <div class="container">
-      <span class="section-index fade-in">06</span>
-      <h2 class="fade-in">Werkzeuge, die wirklich funktionieren</h2>
-      <p class="section-intro fade-in">
-        Wir empfehlen ausschließlich Tools, die wir selbst kennen und die für
-        lokale Betriebe tatsächlich sinnvoll sind — keine Provisionsmaschine
-        für alles, was Geld abwirft.
-      </p>
-
-      <div class="tools-category fade-in">
-        <div class="tools-cat-label">
-          <span class="cat-badge cat-badge-blue">Terminbuchung</span>
-        </div>
-        <div class="authority-grid">
-          <div class="authority-item authority-item-blue">
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-logo-wrap tool-logo-blue"><span>Sh</span></div>
+          <div class="tool-info">
             <strong>Shore</strong>
-            <span>Terminbuchung für Friseure, Praxen &amp; Dienstleister —
-            marktführend im DACH-Raum, DSGVO-konform, mobil nutzbar.
-            Ideal wenn Sie professionell wachsen wollen.</span>
+            <p>Marktführer im DACH-Raum. DSGVO-konform, mobil, ideal für Friseure und Praxen. Professionell skalierbar.</p>
           </div>
-          <div class="authority-item authority-item-blue">
+        </div>
+        <div class="tool-card">
+          <div class="tool-logo-wrap tool-logo-teal"><span>Fr</span></div>
+          <div class="tool-info">
             <strong>Fresha</strong>
-            <span>Kostenlose Basis-Variante — ideal für Betriebe, die erst einsteigen
-            wollen ohne Monatskosten. Weltweiter Marktführer im Beauty-Bereich.</span>
+            <p>Kostenlose Basis-Variante. Weltweiter Marktführer im Beauty-Bereich. Ideal zum Einstieg ohne Monatskosten.</p>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="tools-category fade-in">
-        <div class="tools-cat-label">
-          <span class="cat-badge cat-badge-red">Kartenzahlung</span>
-        </div>
-        <div class="authority-grid">
-          <div class="authority-item authority-item-red">
+    <div class="tools-section reveal">
+      <div class="tools-label">
+        <span class="tools-cat-pill pill-red">💳 Kartenzahlung</span>
+      </div>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-logo-wrap tool-logo-red"><span>Su</span></div>
+          <div class="tool-info">
             <strong>SumUp</strong>
-            <span>Kartenzahlung für lokale Betriebe — einfaches Kartenlesegerät,
-            keine Grundgebühr, günstiger Transaktionspreis. Ideal wenn Sie noch
-            bar kassieren und Kunden verlieren, die keine Karte dabei haben.</span>
+            <p>Einfaches Kartenlesegerät, keine Grundgebühr. Kunden die keine Karte dabei haben, verlieren Sie nie wieder.</p>
           </div>
-          <div class="authority-item authority-item-red">
+        </div>
+        <div class="tool-card">
+          <div class="tool-logo-wrap tool-logo-navy"><span>mP</span></div>
+          <div class="tool-info">
             <strong>myPOS</strong>
-            <span>Alternative zu SumUp mit etwas mehr Funktionsumfang —
-            eigenes Konto inklusive, für Betriebe die eine All-in-One-Lösung
-            bevorzugen.</span>
+            <p>All-in-One mit eigenem Konto. Etwas mehr Funktionsumfang für Betriebe, die eine vollständige Lösung suchen.</p>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="tools-category fade-in">
-        <div class="tools-cat-label">
-          <span class="cat-badge cat-badge-yellow">Website &amp; Sichtbarkeit</span>
-        </div>
-        <div class="authority-grid">
-          <div class="authority-item authority-item-yellow">
+    <div class="tools-section reveal">
+      <div class="tools-label">
+        <span class="tools-cat-pill pill-yellow">🌐 Website &amp; Sichtbarkeit</span>
+      </div>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-logo-wrap tool-logo-yellow"><span>Ji</span></div>
+          <div class="tool-info">
             <strong>Jimdo</strong>
-            <span>Einfache Website ohne technisches Vorwissen — speziell für
-            lokale Betriebe optimiert, DSGVO-konform, mit Google-Präsenz inklusive.</span>
+            <p>Einfache Website ohne Vorkenntnisse. DSGVO-konform, Google-optimiert. Speziell für lokale Betriebe.</p>
           </div>
-          <div class="authority-item authority-item-yellow">
+        </div>
+        <div class="tool-card">
+          <div class="tool-logo-wrap tool-logo-green"><span>G</span></div>
+          <div class="tool-info">
             <strong>Google Unternehmensprofil</strong>
-            <span>Kostenlos und absolut unverzichtbar: Ihr Betrieb bei Google Maps,
-            mit Öffnungszeiten, Fotos und Bewertungen. Ohne das finden Sie keine
-            Neukunden mehr.</span>
+            <p>Kostenlos und unverzichtbar. Ihr Betrieb bei Google Maps mit Öffnungszeiten, Fotos und Bewertungen.</p>
           </div>
         </div>
       </div>
-
-      <p class="authority-footnote fade-in">
-        Wir empfehlen das, was zu Ihrem Betrieb passt — nicht das, woran wir am meisten verdienen.
-      </p>
     </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════════════════
-       07 — FAQ
-  ═══════════════════════════════════════════════════════ -->
-  <section class="section section-alt" id="faq">
-    <div class="container">
-      <span class="section-index fade-in">07</span>
-      <h2 class="fade-in">Fragen, die wir oft hören</h2>
-      <div class="faq-list">
+    <p class="tools-footnote reveal">Wir empfehlen das, was zu Ihrem Betrieb passt — nicht das, woran wir am meisten verdienen.</p>
+  </div>
+</section>
 
-        <details class="faq-item fade-in">
-          <summary class="faq-q">Ist das wirklich komplett kostenlos für meinen Betrieb?</summary>
-          <div class="faq-a">
-            <p>Ja. Analyse, Beratung, Einrichtung, erster Monat Support — alles 0 €. Wir werden
-            ausschließlich über eine Provision bezahlt, die der jeweilige Tool-Anbieter an uns zahlt,
-            wenn Sie das Tool nutzen. Diese Provision kommt vom Anbieter, nicht von Ihnen. Für Sie
-            ändert sich am Preis des Tools nichts.</p>
-          </div>
-        </details>
+<!-- ═══════════════════════════════════════════════════
+     07 — FAQ
+══════════════════════════════════════════════════════ -->
+<section class="section" id="faq">
+  <div class="container faq-container">
+    <p class="section-kicker reveal">07 — Häufige Fragen</p>
+    <h2 class="reveal">Fragen, die wir oft hören</h2>
 
-        <details class="faq-item fade-in">
-          <summary class="faq-q">Woran verdienen Sie dann?</summary>
-          <div class="faq-a">
-            <p>Shore, Fresha, SumUp, myPOS und andere Tools zahlen eine einmalige Provision an
-            Partner, die neue Nutzer empfehlen. Das ist ein etabliertes Modell — ähnlich wie ein
-            Versicherungsvertreter, der von der Versicherung bezahlt wird, nicht vom Kunden.
-            Unser Interesse: Sie nutzen das Tool langfristig. Also empfehlen wir nur, was wirklich
-            zu Ihnen passt — sonst kündigen Sie, und wir haben nichts davon.</p>
-          </div>
-        </details>
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary class="faq-q">Ist das wirklich komplett kostenlos für meinen Betrieb?</summary>
+        <div class="faq-a"><p>Ja. Analyse, Beratung, Einrichtung, erster Monat Support — alles 0 €. Wir werden ausschließlich über eine Provision bezahlt, die der Tool-Anbieter an uns zahlt. Für Sie ändert sich am Preis des Tools nichts.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Woran verdienen Sie dann?</summary>
+        <div class="faq-a"><p>Shore, Fresha, SumUp und Co. zahlen eine Provision an Partner, die neue Nutzer empfehlen — ähnlich wie ein Versicherungsvertreter, der von der Versicherung bezahlt wird. Unser Interesse: Sie nutzen das Tool langfristig. Also empfehlen wir nur, was wirklich passt.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Wie lange dauert die Einrichtung?</summary>
+        <div class="faq-a"><p>Je nach Tool 1–3 Stunden — alles online, ohne Vor-Ort-Termin. Danach läuft das System. Sie müssen nur noch Termine bestätigen oder ablehnen.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Was, wenn das Tool nicht zu meinem Betrieb passt?</summary>
+        <div class="faq-a"><p>Dann sagen wir das — bevor wir irgendwas einrichten. Die Analyse ist ehrlich. Wenn Ihr Betrieb gerade kein guter Kandidat ist, sagen wir das direkt. Lieber eine ehrliche Absage als ein Tool, das Staub ansetzt.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Ich bin nicht technik-affin. Kann ich das trotzdem nutzen?</summary>
+        <div class="faq-a"><p>Genau für Sie ist das gemacht. Sie müssen nichts einrichten, nichts verstehen, nichts lernen — wir machen das. Am Ende gibt es einen Link, den Ihre Kunden aufrufen um online zu buchen. Das war's.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Gilt das nur für Fürth?</summary>
+        <div class="faq-a"><p>Wir arbeiten für Betriebe in Fürth, Nürnberg, Erlangen und der gesamten Metropolregion. Die Analyse ist immer kostenlos, egal wo Ihr Betrieb steht.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
 
-        <details class="faq-item fade-in">
-          <summary class="faq-q">Wie lange dauert die Einrichtung?</summary>
-          <div class="faq-a">
-            <p>Je nach Tool und Betrieb 1–3 Stunden für die technische Einrichtung, alles online
-            und ohne dass Sie vor Ort sein müssen. Danach läuft das System — Sie müssen nur noch
-            Termine bestätigen oder ablehnen, alles andere passiert automatisch.</p>
-          </div>
-        </details>
-
-        <details class="faq-item fade-in">
-          <summary class="faq-q">Was, wenn das Tool nicht zu meinem Betrieb passt?</summary>
-          <div class="faq-a">
-            <p>Dann sagen wir das — bevor wir irgendwas einrichten. Die Analyse ist ehrlich:
-            Wenn Ihr Betrieb für Online-Buchung gerade nicht der richtige Kandidat ist, sagen
-            wir das direkt. Lieber eine ehrliche Absage als ein Tool, das bei Ihnen Staub ansetzt.
-            Und wenn Sie ein Tool ausprobieren und es nach dem ersten Monat doch nicht passt,
-            können Sie kündigen — ohne Vertrag mit uns.</p>
-          </div>
-        </details>
-
-        <details class="faq-item fade-in">
-          <summary class="faq-q">Ich bin nicht technik-affin. Kann ich das trotzdem nutzen?</summary>
-          <div class="faq-a">
-            <p>Genau für Sie ist das gemacht. Sie müssen nichts einrichten, nichts verstehen,
-            nichts lernen — wir machen das. Am Ende sehen Sie einen Link, den Ihre Kunden
-            aufrufen können, um online einen Termin zu buchen. Das war's.</p>
-          </div>
-        </details>
-
-        <details class="faq-item fade-in">
-          <summary class="faq-q">Gilt das nur für Fürth, oder auch für Nürnberg und Umgebung?</summary>
-          <div class="faq-a">
-            <p>Wir arbeiten für Betriebe in Fürth, Nürnberg, Erlangen und der direkten Umgebung —
-            also der gesamten Metropolregion. Die Analyse ist in jedem Fall kostenlos, egal wo
-            Ihr Betrieb steht.</p>
-          </div>
-        </details>
-
+<!-- ═══════════════════════════════════════════════════
+     08 — KAPAZITÄT
+══════════════════════════════════════════════════════ -->
+<section class="section section-warm capacity-section">
+  <div class="container">
+    <p class="section-kicker reveal">08 — Kapazität</p>
+    <h2 class="reveal">Bewusst begrenzt. Persönlich.</h2>
+    <p class="section-intro reveal">
+      Durchgeklickt wird von einer einzigen Person geführt — jede Anfrage persönlich geprüft.
+      Deshalb maximal <strong>5 neue Betriebe pro Monat.</strong>
+    </p>
+    <div class="capacity-visual reveal" aria-label="August 2026: 3 von 5 Plätzen vergeben">
+      <div class="cap-label">August 2026</div>
+      <div class="cap-slots">
+        <div class="cap-slot cap-taken"></div>
+        <div class="cap-slot cap-taken"></div>
+        <div class="cap-slot cap-taken"></div>
+        <div class="cap-slot cap-free cap-pulse"></div>
+        <div class="cap-slot cap-free cap-pulse"></div>
+      </div>
+      <div class="cap-text">
+        <span class="cap-used">3 vergeben</span>
+        <span class="cap-sep">·</span>
+        <span class="cap-free-txt">noch <strong>2 frei</strong></span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══════════════════════════════════════════════════════
-       08 — KNAPPHEIT
-  ═══════════════════════════════════════════════════════ -->
-  <section class="section capacity-section">
-    <div class="container">
-      <span class="section-index fade-in">08</span>
-      <h2 class="fade-in">Bewusst begrenzte Kapazität</h2>
-      <p class="section-intro fade-in">
-        Durchgeklickt wird von einer einzigen Person geführt — jede Anfrage wird persönlich
-        geprüft, nichts läuft automatisiert durch. Deshalb nehmen wir bewusst nur
-        <strong>maximal 5 neue Betriebe pro Monat</strong> auf: damit jeder Betrieb die
-        Aufmerksamkeit bekommt, die er verdient.
-      </p>
-      <div class="capacity-visual fade-in" aria-label="August: 3 von 5 Plätzen vergeben">
-        <div class="capacity-label">August 2026</div>
-        <div class="capacity-slots">
-          <div class="cap-slot cap-taken" aria-label="Platz vergeben"></div>
-          <div class="cap-slot cap-taken" aria-label="Platz vergeben"></div>
-          <div class="cap-slot cap-taken" aria-label="Platz vergeben"></div>
-          <div class="cap-slot cap-free" aria-label="Platz frei"></div>
-          <div class="cap-slot cap-free" aria-label="Platz frei"></div>
+<!-- ═══════════════════════════════════════════════════
+     09 — KONTAKT
+══════════════════════════════════════════════════════ -->
+<section class="section kontakt-section" id="kontakt">
+  <div class="container kontakt-inner">
+    <p class="section-kicker reveal">09 — Jetzt anfragen</p>
+    <h2 class="reveal">Kostenlose Analyse anfragen</h2>
+    <p class="section-intro reveal">
+      Kurz das Formular ausfüllen — Sie bekommen eine ehrliche Einschätzung, ganz ohne Verpflichtung.
+    </p>
+
+    <form class="kontakt-form reveal" id="kontaktForm" action="https://formspree.io/f/DEINE_FORMSPREE_ID" method="POST">
+      <input type="hidden" name="_subject" value="Kostenlose Digital-Analyse angefragt (durchgeklickt.com)">
+      <input type="hidden" name="_next" value="?gesendet=1#kontakt">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="f-name">Name</label>
+          <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Max Mustermann">
         </div>
-        <div class="capacity-text">
-          <span class="cap-taken-label">3 vergeben</span>
-          <span class="cap-sep">·</span>
-          <span class="cap-free-label">noch <strong>2 frei</strong></span>
+        <div class="form-field">
+          <label for="f-email">E-Mail</label>
+          <input type="email" id="f-email" name="_replyto" required autocomplete="email" placeholder="info@meinbetrieb.de">
+        </div>
+        <div class="form-field">
+          <label for="f-betrieb">Betriebsname</label>
+          <input type="text" id="f-betrieb" name="betrieb" required autocomplete="organization" placeholder="Salon Mustermann">
+        </div>
+        <div class="form-field">
+          <label for="f-branche">Branche</label>
+          <select id="f-branche" name="branche">
+            <option value="">Bitte wählen (optional)</option>
+            <option>Friseur / Barbershop</option>
+            <option>Zahnarztpraxis</option>
+            <option>Tierarztpraxis</option>
+            <option>Optiker</option>
+            <option>Immobilienmakler</option>
+            <option>Handwerk / Sanitär / Elektro</option>
+            <option>Café / Bistro</option>
+            <option>Kosmetik / Nails</option>
+            <option>Sonstiges</option>
+          </select>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       09 — KONTAKT
-  ═══════════════════════════════════════════════════════ -->
-  <section class="section kontakt-section" id="kontakt">
-    <div class="container kontakt-inner">
-      <span class="section-index fade-in">09</span>
-      <h2 class="fade-in">Jetzt kostenlose Analyse anfragen</h2>
-      <p class="section-intro fade-in">
-        Kurz das Formular ausfüllen. Sie bekommen eine ehrliche Einschätzung —
-        ganz ohne Verpflichtung und ohne Kosten für Ihren Betrieb.
-      </p>
-
-      <form class="kontakt-form fade-in" id="kontaktForm" action="https://formspree.io/f/DEINE_FORMSPREE_ID" method="POST">
-        <input type="hidden" name="_subject" value="Kostenlose Digital-Analyse angefragt (durchgeklickt.com)">
-        <input type="hidden" name="_next" value="?gesendet=1#kontakt">
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-        <div class="form-row form-row-half">
-          <div>
-            <label for="f-name">Name</label>
-            <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Max Mustermann">
-          </div>
-          <div>
-            <label for="f-email">E-Mail</label>
-            <input type="email" id="f-email" name="_replyto" required autocomplete="email" placeholder="info@meinbetrieb.de">
-          </div>
-        </div>
-        <div class="form-row form-row-half">
-          <div>
-            <label for="f-betrieb">Betriebsname</label>
-            <input type="text" id="f-betrieb" name="betrieb" required autocomplete="organization" placeholder="Salon Mustermann">
-          </div>
-          <div>
-            <label for="f-branche">Branche</label>
-            <select id="f-branche" name="branche">
-              <option value="">Bitte wählen (optional)</option>
-              <option>Friseur / Barbershop</option>
-              <option>Zahnarztpraxis</option>
-              <option>Tierarztpraxis</option>
-              <option>Optiker</option>
-              <option>Immobilienmakler</option>
-              <option>Handwerk / Sanitär / Elektro</option>
-              <option>Café / Bistro</option>
-              <option>Kosmetik / Nails</option>
-              <option>Sonstiges</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <label for="f-nachricht">Kurze Beschreibung (optional)</label>
-          <textarea id="f-nachricht" name="nachricht" rows="3" placeholder="z. B. »Wir haben aktuell keine Website und nehmen Termine nur telefonisch an.«"></textarea>
-        </div>
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary btn-large">Kostenlose Analyse anfragen</button>
-          <span class="zero-cost-badge">0&nbsp;€ Kosten · unverbindlich</span>
-        </div>
-        <p class="form-privacy-note">
-          Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäß unserer
-          <a href="datenschutz.html">Datenschutzerklärung</a> zu.
-        </p>
-      </form>
-
-      <div class="kontakt-success" id="kontaktSuccess" hidden>
-        <p><strong>Danke — Ihre Anfrage ist angekommen.</strong><br>
-        Sie hören innerhalb von 1–2 Werktagen persönlich von uns.</p>
+      <div class="form-field form-field-full">
+        <label for="f-nachricht">Kurze Beschreibung (optional)</label>
+        <textarea id="f-nachricht" name="nachricht" rows="3" placeholder="z. B. »Wir nehmen Termine aktuell nur telefonisch an und haben keine eigene Website.«"></textarea>
       </div>
+      <div class="form-submit-row">
+        <button type="submit" class="btn btn-primary btn-large">Kostenlose Analyse anfragen →</button>
+        <span class="zero-badge">0 € · Unverbindlich</span>
+      </div>
+      <p class="form-legal">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäß unserer <a href="datenschutz.html">Datenschutzerklärung</a> zu.</p>
+    </form>
 
-      <p class="kontakt-direct">
-        Oder direkt per E-Mail:
-        <a href="mailto:D.Durchgeklickt@gmail.com?subject=Kostenlose%20Digital-Analyse%20anfragen&body=Hallo%20Daniel%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20kostenlose%20Digital-Analyse%20f%C3%BCr%20meinen%20Betrieb%3A%0A%0ABetriebsname%3A%20%0ABranche%3A%20%0AOrt%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe">D.Durchgeklickt@gmail.com</a>
-      </p>
+    <div class="kontakt-success" id="kontaktSuccess" hidden>
+      <div class="success-icon">✓</div>
+      <p><strong>Danke — Ihre Anfrage ist angekommen.</strong><br>Sie hören innerhalb von 1–2 Werktagen persönlich von uns.</p>
     </div>
-  </section>
+
+    <p class="kontakt-direct">Oder direkt per E-Mail: <a href="mailto:D.Durchgeklickt@gmail.com?subject=Kostenlose%20Digital-Analyse%20anfragen">D.Durchgeklickt@gmail.com</a></p>
+  </div>
+</section>
 
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <img class="footer-logo" src="assets/logo-mark.svg" alt="" width="30" height="30">
-    <div class="footer-impressum">
-      <h3>Impressum</h3>
-      <p>
-        Angaben gemäß § 5 TMG:<br>
-        Daniel Schweiger<br>
-        Lehmusstraße 35, 90766 Fürth<br>
-        E-Mail: <a href="mailto:D.Durchgeklickt@gmail.com">D.Durchgeklickt@gmail.com</a>
-      </p>
+    <div class="footer-brand">
+      <img src="assets/logo-mark.svg" alt="" width="32" height="32">
+      <span>durchgeklickt</span>
     </div>
-    <div class="footer-nav">
+    <div class="footer-impressum">
+      <strong>Impressum (§ 5 TMG)</strong>
+      <p>Daniel Schweiger · Lehmusstraße 35 · 90766 Fürth<br>
+         <a href="mailto:D.Durchgeklickt@gmail.com">D.Durchgeklickt@gmail.com</a></p>
+    </div>
+    <div class="footer-links">
       <a href="datenschutz.html">Datenschutzerklärung</a>
     </div>
-    <p class="footer-copyright">© 2026 Durchgeklickt — Daniel Schweiger · Fürth</p>
+    <p class="footer-copy">© 2026 Durchgeklickt — Daniel Schweiger</p>
   </div>
 </footer>
 
-<div class="mobile-sticky-cta" id="mobileCta">
+<div class="mobile-sticky" id="mobileCta">
   <a class="btn btn-primary" href="#kontakt">Kostenlose Analyse anfragen</a>
 </div>
 
+<!-- Lenis smooth scroll -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
