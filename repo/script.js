@@ -98,6 +98,52 @@
     ctaObs.observe(kontaktSection);
   }
 
+  /* ---------- Scroll Progress Bar ---------- */
+  var scrollBar = document.getElementById("scrollProgress");
+  if (scrollBar) {
+    window.addEventListener("scroll", function () {
+      var scrolled = document.documentElement.scrollTop || document.body.scrollTop;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      scrollBar.style.width = (max > 0 ? (scrolled / max * 100) : 0) + "%";
+    }, { passive: true });
+  }
+
+  /* ---------- Back To Top ---------- */
+  var backToTop = document.getElementById("backToTop");
+  if (backToTop) {
+    window.addEventListener("scroll", function () {
+      var scrolled = document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrolled > 500) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    }, { passive: true });
+
+    backToTop.addEventListener("click", function () {
+      if (typeof lenis !== "undefined") {
+        lenis.scrollTo(0);
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+  }
+
+  /* ---------- Card 3D Tilt ---------- */
+  if (!reduced) {
+    document.querySelectorAll(".card, .trans-card, .tool-card").forEach(function (card) {
+      card.addEventListener("mousemove", function (e) {
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = "perspective(600px) rotateY(" + (x * 8) + "deg) rotateX(" + (-y * 8) + "deg) translateY(-4px)";
+      });
+      card.addEventListener("mouseleave", function () {
+        card.style.transform = "";
+      });
+    });
+  }
+
   /* ---------- Formspree Erfolg ---------- */
   if (window.location.search.indexOf("gesendet=1") !== -1) {
     var form = document.getElementById("kontaktForm");
