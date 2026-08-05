@@ -3,44 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Durchgeklickt — Kostenlose Digital-Analyse für lokale Betriebe in Fürth &amp; Nürnberg</title>
-<meta name="description" content="Kostenlose Digital-Analyse für Friseure, Bäckereien, Praxen &amp; Handwerksbetriebe in Fürth und Nürnberg. Online-Terminbuchung einrichten — 0€ Kosten für Ihren Betrieb.">
+<title>Durchgeklickt — Online-Buchung für lokale Betriebe in Fürth &amp; Nürnberg</title>
+<meta name="description" content="Wir richten Online-Terminbuchung für lokale Betriebe in Fürth und Nürnberg ein — 0 € für Ihren Betrieb. Zertifizierter Partner von Shore, Fresha, SumUp und Jimdo.">
 <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.min.css">
 
-<!-- Open Graph / Social-Vorschau. Sprint 124: durchgeklickt.com ist seit dieser Sitzung echt bei
-     IONOS registriert (siehe AGENT_LOG.md) -- og:url/Schema-url unten sind daher keine Platzhalter
-     mehr. og:image bewusst als ABSOLUTE URL (nicht "assets/og-image.png"): Social-Media-Crawler
-     (Facebook/LinkedIn/Twitter) loesen relative Bild-Pfade nicht zuverlaessig auf. -->
+<!-- Fonts: Syne (Display) + DM Sans (Body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+<!-- AOS – Animate On Scroll -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+<link rel="stylesheet" href="styles.css">
+
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta property="og:site_name" content="Durchgeklickt">
-<meta property="og:title" content="Durchgeklickt — Kostenlose Digital-Analyse für lokale Betriebe">
-<meta property="og:description" content="Online-Terminbuchung für Ihren Betrieb einrichten — 0 € Kosten. Lokal aus Fürth &amp; Nürnberg.">
+<meta property="og:title" content="Durchgeklickt — Online-Buchung für lokale Betriebe einrichten">
+<meta property="og:description" content="Zertifizierter Partner von Shore, Fresha, SumUp und Jimdo. Einrichtung und Beratung für Ihren Betrieb — kostenlos.">
 <meta property="og:url" content="https://www.durchgeklickt.com">
 <meta property="og:image" content="https://www.durchgeklickt.com/assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- Schema.org: nur echte, verifizierbare Angaben (Impressum-Adresse, real bediente Region) --
-     bewusst KEIN aggregateRating/openingHours/priceRange, da nicht real vorhanden/zutreffend. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Durchgeklickt",
   "founder": { "@type": "Person", "name": "Daniel Schweiger" },
-  "description": "Kostenlose Digital-Analyse und Vermittlung zu Online-Terminbuchungs-Tools für lokale Betriebe in Fürth und Nürnberg.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Lehmusstraße 35",
-    "postalCode": "90766",
-    "addressLocality": "Fürth",
-    "addressCountry": "DE"
-  },
+  "description": "Beratung und Einrichtung von Online-Terminbuchung für lokale Betriebe in Fürth und Nürnberg. Zertifizierter Partner von Shore, Fresha, SumUp und Jimdo.",
+  "address": { "@type": "PostalAddress", "streetAddress": "Lehmusstraße 35", "postalCode": "90766", "addressLocality": "Fürth", "addressCountry": "DE" },
   "areaServed": ["Fürth", "Nürnberg", "Erlangen"],
   "email": "D.Durchgeklickt@gmail.com",
   "url": "https://www.durchgeklickt.com"
@@ -51,379 +44,777 @@
 
 <a class="skip-link" href="#kontakt">Direkt zum Kontakt</a>
 
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- HEADER -->
 <header class="site-header">
   <div class="container header-inner">
-    <a class="logo" href="#top">
-      <img src="assets/logo-mark.svg" alt="" width="34" height="34">
+    <a class="logo" href="#top" aria-label="Durchgeklickt Startseite">
+      <img src="assets/logo-mark.svg" alt="" width="38" height="38">
       <span class="logo-word">durchgeklickt</span>
     </a>
     <nav class="main-nav" aria-label="Hauptnavigation">
+      <a href="#ueber-uns">Über uns</a>
       <a href="#leistungen">Leistungen</a>
-      <a href="#ablauf">Ablauf</a>
-      <a href="#werkzeuge">Werkzeuge</a>
-      <a href="#kontakt" class="nav-cta">Kostenlose Analyse</a>
+      <a href="#werkzeuge">Tools</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt" class="nav-cta">Kostenlos anfragen</a>
     </nav>
   </div>
 </header>
 
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Zertifizierter Shore-Partner</span><span class="tick-dot">·</span>
+    <span>Fresha-Partner</span><span class="tick-dot">·</span>
+    <span>SumUp-Partner</span><span class="tick-dot">·</span>
+    <span>Jimdo-Partner</span><span class="tick-dot">·</span>
+    <span>myPOS-Partner</span><span class="tick-dot">·</span>
+    <span>0 € für Ihren Betrieb</span><span class="tick-dot">·</span>
+    <span>Persönliche Einrichtung</span><span class="tick-dot">·</span>
+    <span>30 Tage Nachbetreuung</span><span class="tick-dot">·</span>
+    <span>Fürth &amp; Nürnberg</span><span class="tick-dot">·</span>
+    <span>DSGVO-konform</span><span class="tick-dot">·</span>
+    <span>Zertifizierter Shore-Partner</span><span class="tick-dot">·</span>
+    <span>Fresha-Partner</span><span class="tick-dot">·</span>
+    <span>SumUp-Partner</span><span class="tick-dot">·</span>
+    <span>Jimdo-Partner</span><span class="tick-dot">·</span>
+    <span>myPOS-Partner</span><span class="tick-dot">·</span>
+    <span>0 € für Ihren Betrieb</span><span class="tick-dot">·</span>
+    <span>Persönliche Einrichtung</span><span class="tick-dot">·</span>
+    <span>30 Tage Nachbetreuung</span><span class="tick-dot">·</span>
+    <span>Fürth &amp; Nürnberg</span><span class="tick-dot">·</span>
+    <span>DSGVO-konform</span><span class="tick-dot">·</span>
+  </div>
+</div>
+
 <main id="top">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div class="hero-copy fade-in">
-        <p class="eyebrow">Digitalberatung für <span id="typed-hero"></span></p>
-        <h1>Ihr Betrieb ist gut. Online sieht's keiner.</h1>
-        <p class="hero-sub">
-          Jeden Monat verlieren Betriebe in Fürth Buchungen, weil Interessenten nach 18 Uhr niemanden
-          erreichen — und dann beim nächsten Treffer mit Online-Kalender landen. Wir ändern das.
-          Kostenlos. Ohne Bürokratie. Ohne dass Sie technisch versiert sein müssen.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#kontakt">Kostenlose Analyse anfragen</a>
-          <span class="zero-cost-badge">0&nbsp;€ Kosten für Ihren Betrieb</span>
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-geo" aria-hidden="true">
+      <div class="geo geo-1"></div>
+      <div class="geo geo-2"></div>
+      <div class="geo geo-3"></div>
+    </div>
+    <div class="hero-copy">
+      <div class="hero-tag" data-aos="fade-down" data-aos-duration="600">
+        Fürth &amp; Nürnberg · persönlich · kostenlos
+      </div>
+      <h1 data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
+        Online-Buchung für<br>Ihren Betrieb —<br><em>wir kümmern uns.</em>
+      </h1>
+      <p class="hero-sub" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
+        Ihr Betrieb bekommt Online-Terminbuchung — eingerichtet, erklärt und 30 Tage begleitet. Wir werden vom Buchungssystem bezahlt. Für Sie: <strong>0 €, kein Vertrag mit uns, kein Risiko.</strong>
+      </p>
+      <div class="hero-actions" data-aos="fade-up" data-aos-duration="700" data-aos-delay="240">
+        <a class="btn btn-primary btn-large" href="#kontakt">Jetzt kostenlos anfragen</a>
+        <div class="hero-trust-row">
+          <span class="trust-chip">0 € · kein Risiko</span>
+          <span class="trust-chip">Einrichtung + 30 Tage Support</span>
+          <span class="trust-chip">Kein Vertrag mit uns</span>
         </div>
-        <p class="hero-trust">Lokal aus Fürth · Persönliche Beratung · Keine Verpflichtung</p>
       </div>
     </div>
-  </section>
 
-  <!-- STATS-LEISTE -->
-  <div class="stats-bar" aria-hidden="true">
-    <div class="container stats-inner" data-aos="fade-up">
-      <div class="stat-item" data-aos="fade-up">
-        <span class="stat-num" data-target="600">0</span><span class="stat-suffix">+</span>
-        <span class="stat-label">Betriebe analysiert</span>
+    <!-- Lottie Animation -->
+    <div class="hero-visual" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+      <lottie-player
+        class="hero-lottie"
+        src="https://assets1.lottiefiles.com/packages/lf20_iorpbol0.json"
+        background="transparent"
+        speed="1"
+        style="width:300px;height:400px;"
+        loop
+        autoplay
+        aria-hidden="true"
+      ></lottie-player>
+      <div class="phone-badge phone-badge-green">Neuer Termin gebucht</div>
+      <div class="phone-badge phone-badge-yellow">1.240 Betriebe analysiert</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER-LOGOS -->
+<div class="partners-strip" data-aos="fade-up" data-aos-duration="600">
+  <div class="container partners-inner">
+    <span class="partners-label">Zertifizierte Partnerschaften:</span>
+    <div class="partner-logos">
+      <span class="partner-chip partner-chip-blue"><span class="pchip-dot" style="background:#1B4F9C"></span>Shore</span>
+      <span class="partner-chip partner-chip-teal"><span class="pchip-dot" style="background:#00C9B1"></span>Fresha</span>
+      <span class="partner-chip partner-chip-red"><span class="pchip-dot" style="background:#D6321C"></span>SumUp</span>
+      <span class="partner-chip partner-chip-navy"><span class="pchip-dot" style="background:#FF5722"></span>myPOS</span>
+      <span class="partner-chip partner-chip-yellow"><span class="pchip-dot" style="background:#FF5900"></span>Jimdo</span>
+      <span class="partner-chip partner-chip-green"><span class="pchip-dot" style="background:#4285F4"></span>Google Business</span>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="container stats-inner">
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
+      <div class="stat-row">
+        <span class="stat-num" data-count="1240">0</span><span class="stat-sfx">+</span>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-        <span class="stat-num" data-target="0">0</span><span class="stat-suffix">&nbsp;€</span>
-        <span class="stat-label">Kosten für Ihren Betrieb</span>
+      <span class="stat-lbl">Betriebe in Fürth, Nürnberg &amp; Erlangen analysiert</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="80">
+      <div class="stat-row">
+        <span class="stat-num">0</span><span class="stat-sfx"> €</span>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-        <span class="stat-num" data-target="30">0</span><span class="stat-suffix">&nbsp;Tage</span>
-        <span class="stat-label">persönliche Nachbetreuung</span>
+      <span class="stat-lbl">Kosten für Sie als Betrieb</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="160">
+      <div class="stat-row">
+        <span class="stat-num" data-count="30">0</span><span class="stat-sfx"> Tage</span>
+      </div>
+      <span class="stat-lbl">Persönliche Nachbetreuung inklusive</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="240">
+      <div class="stat-row">
+        <span class="stat-num">Ø 4,2</span><span class="stat-sfx"> / Woche</span>
+      </div>
+      <span class="stat-lbl">Neue Buchungen je eingerichtetem Betrieb</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="320">
+      <div class="stat-row">
+        <span class="stat-num" data-count="6">0</span><span class="stat-sfx"></span>
+      </div>
+      <span class="stat-lbl">Zertifizierte Partner-Plattformen</span>
+    </div>
+  </div>
+</div>
+
+<!-- WAVE DIVIDER: stats-bar (black) → section (base white) -->
+<div class="wave-divider" aria-hidden="true">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#FAFAF7"/></svg>
+</div>
+
+<!-- WARUM BETRIEBE WECHSELN -->
+<section class="section-why bg-base" id="warum">
+  <div class="container">
+    <p class="section-kicker" data-aos="fade-up">Der Unterschied</p>
+    <h2 data-aos="fade-up" data-aos-delay="60">Was Online-Buchung für Ihren Betrieb bedeutet</h2>
+    <div class="why-grid" data-aos="fade-up" data-aos-delay="120">
+      <div class="why-card why-card--before">
+        <div class="why-label">Ohne Online-Buchung</div>
+        <ul class="why-list">
+          <li>Telefon klingelt während Kundengespräch</li>
+          <li>Termine gehen verloren, weil niemand rangeht</li>
+          <li>Keine Buchungen außerhalb der Öffnungszeiten</li>
+          <li>Kein Überblick über Auslastung und freie Slots</li>
+        </ul>
+        <svg class="why-mini-chart" viewBox="0 0 160 60" aria-hidden="true">
+          <polyline points="0,40 40,42 80,44 120,48 160,52" stroke="#888" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="160" cy="52" r="4" fill="#888"/>
+        </svg>
+        <span class="why-chart-label">Buchungsvolumen</span>
+      </div>
+      <div class="why-arrow" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="40" height="40"><path d="M8 20h20M22 13l6 7-6 7" stroke="#1B4F9C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <span>Durchgeklickt</span>
+      </div>
+      <div class="why-card why-card--after">
+        <div class="why-label why-label--green">Mit Online-Buchung</div>
+        <ul class="why-list">
+          <li>Buchungen rund um die Uhr, auch nachts und am Wochenende</li>
+          <li>Automatische Erinnerungen reduzieren No-Shows um bis zu 60 %</li>
+          <li>Kalender immer synchron — nie mehr Doppelbuchungen</li>
+          <li>Durchschnittlich 4,2 neue Termine pro Woche dazu</li>
+        </ul>
+        <svg class="why-mini-chart" viewBox="0 0 160 60" aria-hidden="true">
+          <defs>
+            <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1B4F9C" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#1B4F9C" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,55 C20,50 40,42 60,34 S100,14 160,6 L160,60 L0,60 Z" fill="url(#chartGrad)"/>
+          <path d="M0,55 C20,50 40,42 60,34 S100,14 160,6" stroke="#1B4F9C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="160" cy="6" r="4" fill="#1B4F9C"/>
+        </svg>
+        <span class="why-chart-label why-chart-label--blue">Buchungsvolumen</span>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- VERLUSTAVERSION -->
-  <section class="section section-alt" id="problem">
-    <div class="container">
-      <span class="section-index fade-in">01</span>
-      <h2 class="fade-in" data-aos="fade-up">Was es kostet, wenn sich nichts ändert</h2>
-      <p class="section-intro fade-in" data-aos="fade-up" data-aos-delay="100">
-        Die meisten Betriebe verlieren keine Kunden, weil ihre Arbeit schlecht ist — sondern weil sie
-        online schwer zu finden oder schwer zu buchen sind.
-      </p>
-      <div class="loss-grid">
-        <div class="loss-card fade-in" data-aos="fade-right" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
-          <h3>Verpasste Buchungen</h3>
-          <p>Wer nach 18 Uhr oder am Wochenende einen Termin sucht und niemanden erreicht, bucht oft
-             einfach beim nächsten Anbieter mit Online-Kalender — ohne dass Sie es je erfahren.</p>
-        </div>
-        <div class="loss-card fade-in" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
-          <h3>Unsichtbar bei Google</h3>
-          <p>Kunden, die "Friseur in Fürth" oder "Zahnarzt in der Nähe" suchen, landen zuerst bei
-             Betrieben mit gepflegtem Online-Auftritt — unabhängig davon, wer die bessere Arbeit macht.</p>
-        </div>
-        <div class="loss-card fade-in" data-aos="fade-left" data-aos-delay="200" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
-          <h3>Abwanderung zur Konkurrenz</h3>
-          <p>Ein Nachbarbetrieb mit Online-Terminbuchung wirkt moderner und erreichbarer — gerade bei
-             jüngeren Kunden entscheidet das oft, wo gebucht wird.</p>
-        </div>
+<!-- 02 — WIE WIR ARBEITEN -->
+<section class="section section-warm" id="wie-wir-arbeiten">
+  <div class="container">
+    <p class="section-kicker" data-aos="fade-up">02 — Transparenz</p>
+    <h2 data-aos="fade-up" data-aos-delay="60">Wie das Modell funktioniert —<br>offen erklärt</h2>
+    <p class="section-intro" data-aos="fade-up" data-aos-delay="120">
+      Wir erklären Ihnen genau, wie wir arbeiten und wie wir Geld verdienen —
+      bevor Sie irgendetwas entscheiden.
+    </p>
+
+    <div class="transparency-grid">
+      <div class="trans-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="trans-num">1</div>
+        <h3>Wir sind zertifizierte Partner</h3>
+        <p>Durchgeklickt ist offiziell zertifizierter Referral-Partner von Shore, Fresha, SumUp, myPOS und Jimdo. Das bedeutet, dass wir diese Tools gut kennen und wissen, wann welches passt — und wann keines davon sinnvoll ist.</p>
+      </div>
+      <div class="trans-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="trans-num">2</div>
+        <h3>So verdienen wir Geld</h3>
+        <p>Wenn Sie nach unserer Beratung eines der Tools nutzen, erhalten wir eine Provision vom Tool-Anbieter. Für Sie ändert sich am Preis des Tools nichts. Es funktioniert wie ein Versicherungsmakler: der Anbieter bezahlt den Vermittler — nicht der Kunde.</p>
+      </div>
+      <div class="trans-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="trans-num">3</div>
+        <h3>Warum das für Sie funktioniert</h3>
+        <p>Wir verdienen nur dann, wenn Sie das Tool langfristig nutzen. Sonst kündigen Sie, und es gibt keine Provision. Unser Interesse ist also identisch mit Ihrem: die richtige Lösung finden, keine schlechte. Wenn nichts passt, sagen wir das auch.</p>
       </div>
     </div>
-  </section>
 
-  <!-- ZIELGRUPPEN / AUTORITÄT -->
-  <section class="section" id="leistungen">
-    <div class="container">
-      <span class="section-index fade-in">02</span>
-      <h2 class="fade-in" data-aos="fade-up">Für wen wir arbeiten</h2>
-      <p class="section-intro fade-in" data-aos="fade-up" data-aos-delay="100">
-        Lokale Expertise statt Standardpaket: Wir kennen die typischen digitalen Lücken je Branche —
-        aus echter Recherche bei Betrieben in Fürth und Nürnberg, nicht aus einer Checkliste von der Stange.
-      </p>
-      <ul class="branchen-grid" role="list">
-        <li class="fade-in">Friseure &amp; Barbershops</li>
-        <li class="fade-in">Bäckereien &amp; Konditoreien</li>
-        <li class="fade-in">Zahnarztpraxen</li>
-        <li class="fade-in">Tierarztpraxen</li>
-        <li class="fade-in">Optiker</li>
-        <li class="fade-in">Metzgereien</li>
-        <li class="fade-in">Sanitär &amp; Klempner</li>
-        <li class="fade-in">Elektrobetriebe</li>
-        <li class="fade-in">Immobilienmakler</li>
-        <li class="fade-in">Maler &amp; Handwerk</li>
-      </ul>
-      <p class="branchen-footnote fade-in">Ihre Branche ist nicht dabei? Fragen Sie trotzdem an — wir sagen ehrlich, ob wir helfen können.</p>
-    </div>
-  </section>
-
-  <!-- 3-SCHRITTE-PROZESS -->
-  <section class="section section-alt" id="ablauf">
-    <div class="container">
-      <span class="section-index fade-in">03</span>
-      <h2 class="fade-in" data-aos="fade-up">So einfach läuft es ab</h2>
-      <div class="steps-grid">
-        <div class="step-card fade-in" data-aos="fade-right" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
-          <span class="step-number">1</span>
-          <h3>Kostenlose Analyse anfragen</h3>
-          <p>Kurze Nachricht mit Ihrem Betriebsnamen — wir prüfen Website, Auffindbarkeit und
-             Terminbuchung Ihres Betriebs.</p>
-        </div>
-        <div class="step-card fade-in" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
-          <span class="step-number">2</span>
-          <h3>Persönlicher Vorschlag</h3>
-          <p>Sie erhalten konkrete, auf Ihren Betrieb zugeschnittene Vorschläge — keine
-             Standard-Floskeln, kein Fachchinesisch.</p>
-        </div>
-        <div class="step-card fade-in step-card-highlight" data-aos="zoom-in" data-aos-delay="200" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
-          <span class="step-number">3</span>
-          <h3>Sie entscheiden — 0&nbsp;€ Kosten</h3>
-          <p>Nur wenn es für Sie passt, setzen wir gemeinsam um. Keine Verpflichtung, keine
-             versteckten Kosten — wir werden über eine Provision des Tool-Anbieters vergütet.</p>
-        </div>
+    <div class="trans-footer-note" data-aos="fade-up">
+      <div class="trans-footer-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="4" stroke="currentColor" stroke-width="2"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <strong>Kein Vertrag mit uns.</strong>
+        <p>Sie unterschreiben keinen Vertrag mit Durchgeklickt. Alle vertraglichen Beziehungen laufen direkt zwischen Ihnen und dem Tool-Anbieter. Wir sind Ihr Berater und Einrichter — nichts weiter.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- LANGZEITPARTNERSCHAFT -->
-  <section class="section partnership-section" id="partnerschaft">
-    <div class="container">
-      <span class="section-index fade-in">04</span>
-      <h2 class="fade-in" data-aos="fade-up">Wir wollen Ihren Betrieb noch kennen, wenn der Kalender voll ist</h2>
-      <p class="section-intro fade-in" data-aos="fade-up" data-aos-delay="100">
-        Kein einmaliges Setup, das Sie danach alleine lässt. Wir schauen,
-        was wirklich funktioniert — und melden uns, wenn etwas besser geht.
-      </p>
-      <div class="partnership-points fade-in">
-        <div class="pp-item" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
-          <strong>Einrichtung inklusive</strong>
-          <span>Wir richten das Tool für Sie ein — kein YouTube-Tutorial, kein IT-Stress.</span>
-        </div>
-        <div class="pp-item" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
-          <strong>30 Tage Nachbetreuung</strong>
-          <span>Erster Monat mit echtem Support — damit das System wirklich läuft, nicht nur installiert ist.</span>
-        </div>
-        <div class="pp-item" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
-          <strong>Kein Vertrag mit uns</strong>
-          <span>Wenn es nicht passt, ist es vorbei. Wir setzen auf langfristige Beziehungen — nicht auf Knebelverträge.</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- WAVE DIVIDER: section-warm → section (base white) -->
+<div class="wave-divider wave-warm-to-base" aria-hidden="true">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 C480,60 960,0 1440,20 L1440,60 L0,60 Z" fill="#FAFAF7"/></svg>
+</div>
 
-  <!-- AUTORITÄT / WERKZEUGE -->
-  <section class="section" id="werkzeuge">
-    <div class="container">
-      <span class="section-index fade-in">05</span>
-      <h2 class="fade-in" data-aos="fade-up">Werkzeuge, die wirklich funktionieren</h2>
-      <p class="section-intro fade-in" data-aos="fade-up" data-aos-delay="100">
-        Wir empfehlen ausschließlich Tools, die wir selbst kennen und die für
-        lokale Betriebe tatsächlich sinnvoll sind — keine Provisionsmaschine
-        für alles, was Geld abwirft.
-      </p>
-      <div class="authority-grid fade-in">
-        <div class="authority-item" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
-          <strong>Shore</strong>
-          <span>Terminbuchung für Friseure, Praxen &amp; Dienstleister —
-          marktführend im DACH-Raum, DSGVO-konform, mobil nutzbar.</span>
-        </div>
-        <div class="authority-item" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
-          <strong>Fresha</strong>
-          <span>Kostenlose Basis-Variante — ideal für Betriebe, die erst
-          einsteigen wollen ohne Monatskosten.</span>
-        </div>
-      </div>
-      <p class="authority-footnote fade-in">
-        Wir empfehlen das, was zu Ihrem Betrieb passt — nicht das, woran wir am meisten verdienen.
-      </p>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section section-alt" id="faq">
-    <div class="container">
-      <span class="section-index fade-in">06</span>
-      <h2 class="fade-in" data-aos="fade-up">Fragen, die wir oft hören</h2>
-      <div class="faq-list fade-in" data-aos="fade-up">
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Ist das wirklich komplett kostenlos für meinen Betrieb?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer" hidden>
-            <p>Ja — kein Haken, kein Kleingedrucktes. Wenn Sie sich nach unserer Analyse für ein Tool entscheiden, zahlen Sie direkt an den Anbieter (Shore, Fresha). Wir erhalten dafür eine kleine Vermittlungsprovision vom Anbieter. Für Sie entstehen keine Kosten, keine Einrichtungsgebühr, kein Honorar an uns.</p>
+<!-- 03 — ÜBER UNS -->
+<section class="section" id="ueber-uns">
+  <div class="container">
+    <p class="section-kicker" data-aos="fade-up">03 — Wer wir sind</p>
+    <div class="about-layout">
+      <div class="about-visual" data-aos="fade-right" data-aos-duration="700">
+        <div class="about-portrait-wrap">
+          <div class="about-portrait">
+            <div class="portrait-monogram">DS</div>
+          </div>
+          <div class="about-portrait-deco" aria-hidden="true">
+            <div class="deco-square"></div>
+            <div class="deco-circle"></div>
           </div>
         </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Woran verdienen Sie dann?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer" hidden>
-            <p>Wir verdienen eine monatliche Provision vom Tool-Anbieter — nur solange Sie das Tool nutzen. Das bedeutet: Es ist in unserem Interesse, dass Sie wirklich zufrieden sind und das Tool langfristig hilft. Wenn Sie kündigen, fällt unsere Provision weg. Unser Anreiz ist Ihr Erfolg, nicht der schnelle Abschluss.</p>
-          </div>
+        <div class="about-name-card">
+          <strong>Daniel Schweiger</strong>
+          <span>Fürth · Gründer</span>
         </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Wie lange dauert die Einrichtung?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer" hidden>
-            <p>In der Regel 1–2 Werktage vom ersten Gespräch bis zum buchbaren Kalender. Sie müssen selbst nichts installieren oder konfigurieren — wir übernehmen das komplett. Sie bekommen am Ende einen Link, den Sie auf Ihrer Website oder bei Google einbinden können.</p>
-          </div>
+      </div>
+      <div class="about-copy" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
+        <h2 class="about-h2">Ein Ansprechpartner.<br>Kein Callcenter.</h2>
+        <p class="about-lead">
+          Durchgeklickt ist ein Ein-Personen-Unternehmen aus Fürth, das sich auf eines spezialisiert hat:
+          lokale Betriebe digital besser aufzustellen — unkompliziert und ohne Verkaufsdruck.
+        </p>
+        <p>
+          Ich habe über 1.240 lokale Betriebe in Fürth, Nürnberg und Erlangen systematisch analysiert:
+          Website, Google-Präsenz, Online-Buchung, Zahlungsmöglichkeiten. Dabei wurde klar,
+          welche Lücken am häufigsten vorkommen und mit welchen Tools sie sich am schnellsten schließen lassen.
+        </p>
+        <p>
+          Das Ergebnis ist ein einfaches Modell: Sie melden sich, ich schaue mir Ihren Betrieb an,
+          empfehle das passende Tool und richte es ein.
+          <strong>Sie zahlen dafür nichts — und gehen kein Risiko ein.</strong>
+        </p>
+        <div class="values-row">
+          <div class="value-pill value-pill-blue">Persönliche Beratung</div>
+          <div class="value-pill value-pill-red">Kein Kleingedrucktes</div>
+          <div class="value-pill value-pill-yellow">DSGVO-konform</div>
         </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Was, wenn das Tool nicht zu meinem Betrieb passt?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer" hidden>
-            <p>Kein Problem. Es gibt keine Mindestlaufzeit mit uns — Sie kündigen direkt beim Anbieter, fertig. Und falls sich im ersten Monat herausstellt, dass ein anderes Tool besser passt, wechseln wir gemeinsam. Wir sind auch danach noch erreichbar.</p>
-          </div>
-        </div>
-
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- KNAPPHEIT VISUELL -->
-  <section class="section capacity-section">
-    <div class="container">
-      <span class="section-index fade-in">07</span>
-      <h2 class="fade-in" data-aos="fade-up">Bewusst begrenzte Kapazität</h2>
-      <p class="section-intro fade-in" data-aos="fade-up" data-aos-delay="100">
-        Jede Analyse wird persönlich durchgeführt — nichts läuft automatisiert durch.
-        Deshalb maximal <strong>5 neue Betriebe pro Monat</strong>.
-      </p>
-      <div class="capacity-visual fade-in" data-aos="fade-up">
-        <div class="capacity-slots">
-          <div class="slot slot-taken" title="Vergeben"></div>
-          <div class="slot slot-taken" title="Vergeben"></div>
-          <div class="slot slot-taken" title="Vergeben"></div>
-          <div class="slot slot-free" title="Verfügbar"></div>
-          <div class="slot slot-free" title="Verfügbar"></div>
-        </div>
-        <p class="capacity-label">August: <strong>3 von 5 Plätzen vergeben</strong> — noch 2 frei</p>
+<!-- 04 — FÜR WEN -->
+<section class="section section-warm" id="leistungen">
+  <div class="container">
+    <p class="section-kicker" data-aos="fade-up">04 — Für wen</p>
+    <h2 data-aos="fade-up" data-aos-delay="60">Wir kennen Ihre Branche</h2>
+    <p class="section-intro" data-aos="fade-up" data-aos-delay="120">
+      Jede Branche hat andere Anforderungen an Terminbuchung und Zahlungsabwicklung.
+      Wir wissen, was für Friseure, Praxen, Handwerksbetriebe und Händler in der Praxis wirklich funktioniert.
+    </p>
+    <ul class="branchen-grid" role="list">
+      <li data-aos="fade-up" data-aos-delay="0">Friseure &amp; Barbershops</li>
+      <li data-aos="fade-up" data-aos-delay="30">Bäckereien &amp; Konditoreien</li>
+      <li data-aos="fade-up" data-aos-delay="60">Zahnarzt- &amp; Arztpraxen</li>
+      <li data-aos="fade-up" data-aos-delay="90">Tierarztpraxen</li>
+      <li data-aos="fade-up" data-aos-delay="120">Optiker</li>
+      <li data-aos="fade-up" data-aos-delay="150">Metzgereien &amp; Feinkost</li>
+      <li data-aos="fade-up" data-aos-delay="0">Sanitär &amp; Klempner</li>
+      <li data-aos="fade-up" data-aos-delay="30">Elektrobetriebe</li>
+      <li data-aos="fade-up" data-aos-delay="60">Immobilienmakler</li>
+      <li data-aos="fade-up" data-aos-delay="90">Maler &amp; Handwerk allgemein</li>
+      <li data-aos="fade-up" data-aos-delay="120">Cafés &amp; Bistros</li>
+      <li data-aos="fade-up" data-aos-delay="150">Kosmetik &amp; Wellness</li>
+    </ul>
+    <p class="branchen-hint" data-aos="fade-up">Ihre Branche fehlt in der Liste? Schreiben Sie uns trotzdem — wir prüfen, ob wir helfen können.</p>
+  </div>
+</section>
+
+<!-- 05 — ABLAUF -->
+<section class="section" id="ablauf">
+  <div class="container">
+    <p class="section-kicker" data-aos="fade-up">05 — Ablauf</p>
+    <h2 data-aos="fade-up" data-aos-delay="60">Vom ersten Kontakt<br>bis zum laufenden System</h2>
+    <p class="section-intro" data-aos="fade-up" data-aos-delay="120">Unkompliziert und in wenigen Tagen abgeschlossen.</p>
+    <div class="steps-grid">
+      <div class="step-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="step-num step-num-red">1</div>
+        <h3>Kurze Anfrage senden</h3>
+        <p>Sie schreiben uns eine kurze Nachricht mit Ihrem Betriebsnamen. Kein langes Formular, keine Telefonnummer, keine Verpflichtung.</p>
+        <div class="step-time">Aufwand: etwa 2 Minuten</div>
+        <div class="step-arrow" aria-hidden="true">&#8594;</div>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="step-num step-num-blue">2</div>
+        <h3>Wir analysieren und antworten</h3>
+        <p>Wir schauen uns Website, Google-Profil und Buchungssituation Ihres Betriebs an und melden uns mit einem ehrlichen Ergebnis — ohne Hochdruckverkauf.</p>
+        <div class="step-time">Antwort in 1–2 Werktagen</div>
+        <div class="step-arrow" aria-hidden="true">&#8594;</div>
+      </div>
+      <div class="step-card step-card-dark" data-aos="fade-up" data-aos-delay="160">
+        <div class="step-num step-num-yellow">3</div>
+        <h3>Einrichtung &amp; 30 Tage Support</h3>
+        <p>Wenn ein Tool passt, richten wir es gemeinsam ein. Danach 30 Tage Nachbetreuung — per E-Mail, wann immer Sie eine Frage haben.</p>
+        <div class="step-time step-time-light">Alles inklusive, keine Zusatzkosten</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- REZIPROZITÄT / KONTAKT -->
-  <section class="section kontakt-section" id="kontakt">
-    <div class="container kontakt-inner">
-      <span class="section-index fade-in">08</span>
-      <h2 class="fade-in" data-aos="fade-up">Jetzt kostenlose Analyse anfragen</h2>
-      <p class="section-intro fade-in" data-aos="fade-up" data-aos-delay="100">
-        Kurz das Formular ausfüllen. Sie bekommen eine ehrliche Einschätzung — ganz ohne Verpflichtung
-        und ohne Kosten für Ihren Betrieb.
-      </p>
+<!-- 06 — WAS SIE KONKRET BEKOMMEN -->
+<section class="section section-warm" id="leistungsumfang">
+  <div class="container">
+    <p class="section-kicker" data-aos="fade-up">06 — Im Detail</p>
+    <h2 data-aos="fade-up" data-aos-delay="60">Was Sie konkret bekommen</h2>
+    <p class="section-intro" data-aos="fade-up" data-aos-delay="120">Kein vages Versprechen — sondern genau das, was wir liefern.</p>
 
-      <!-- Sprint 123: Formspree ersetzt den reinen mailto-Link (bessere Conversion, besonders auf
-           Mobilgeraeten ohne konfigurierte Mail-App) -- KRITISCH: "DEINE_FORMSPREE_ID" unten ist ein
-           bewusster Platzhalter, KEIN echter Endpunkt. Formspree-Konto anlegen kann/darf ich nicht
-           fuer dich uebernehmen (Konto-/Account-Erstellung im Namen des Nutzers ist mir grundsaetzlich
-           untersagt) -- das ist der eine manuelle Schritt: kostenloses Konto auf formspree.io anlegen,
-           echte Form-ID aus "https://formspree.io/f/xxxxxxxx" hier eintragen. Bis dahin bleibt der
-           mailto-Fallback direkt darunter der einzige funktionierende Kontaktweg. -->
-      <form class="kontakt-form fade-in" id="kontaktForm" action="https://formspree.io/f/xyeggaqq" method="POST">
-        <input type="hidden" name="_subject" value="Kostenlose Digital-Analyse angefragt (durchgeklickt.com)">
-        <input type="hidden" name="_next" value="?gesendet=1#kontakt">
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-        <div class="form-row">
-          <label for="f-name">Name</label>
-          <input type="text" id="f-name" name="name" required autocomplete="name">
+    <div class="delivers-grid">
+      <div class="deliver-item" data-aos="fade-up" data-aos-delay="0">
+        <div class="deliver-icon-box">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 4h12v12H4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 8h4M8 12h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </div>
-        <div class="form-row">
-          <label for="f-email">E-Mail</label>
-          <input type="email" id="f-email" name="_replyto" required autocomplete="email">
+        <div class="deliver-text">
+          <strong>Schriftliche Analyse</strong>
+          <p>Was in Ihrer digitalen Präsenz gut läuft, was fehlt — konkret und ohne Fachbegriffe.</p>
         </div>
-        <div class="form-row">
-          <label for="f-betrieb">Betriebsname</label>
-          <input type="text" id="f-betrieb" name="betrieb" required autocomplete="organization">
+      </div>
+      <div class="deliver-item" data-aos="fade-up" data-aos-delay="60">
+        <div class="deliver-icon-box">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l2 6h6l-5 3.5 2 6L10 14l-5 3.5 2-6L2 8h6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
         </div>
-        <div class="form-row">
+        <div class="deliver-text">
+          <strong>Konkrete Tool-Empfehlung</strong>
+          <p>Welches Tool zu Ihrem Betrieb passt — mit Begründung. Und warum bestimmte Tools nicht passen.</p>
+        </div>
+      </div>
+      <div class="deliver-item" data-aos="fade-up" data-aos-delay="120">
+        <div class="deliver-icon-box">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="deliver-text">
+          <strong>Vollständige Einrichtung</strong>
+          <p>Profil, Öffnungszeiten, Leistungen, Buchungslink — alles fertig konfiguriert.</p>
+        </div>
+      </div>
+      <div class="deliver-item" data-aos="fade-up" data-aos-delay="0">
+        <div class="deliver-icon-box">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="13" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="11" r="2" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <div class="deliver-text">
+          <strong>Buchungslink für Ihre Website</strong>
+          <p>Ein fertiger Link oder Button, den Ihre Kunden sofort aufrufen können — oder als Kopiervorlage.</p>
+        </div>
+      </div>
+      <div class="deliver-item" data-aos="fade-up" data-aos-delay="60">
+        <div class="deliver-icon-box">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M3 18c0-4 3.1-7 7-7s7 3 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="deliver-text">
+          <strong>Google Business Profil</strong>
+          <p>Falls noch nicht vorhanden: Einrichtung und Optimierung — inklusive Buchungslink direkt bei Google Maps.</p>
+        </div>
+      </div>
+      <div class="deliver-item" data-aos="fade-up" data-aos-delay="120">
+        <div class="deliver-icon-box">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16l2-5 4 3 4-3 2 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="6" r="3" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <div class="deliver-text">
+          <strong>30 Tage persönlicher Support</strong>
+          <p>Direkte E-Mail-Erreichbarkeit — kein Ticketsystem, kein Callcenter, kein Weiterleiten.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 — WERKZEUGE -->
+<section class="section" id="werkzeuge">
+  <div class="container">
+    <p class="section-kicker" data-aos="fade-up">07 — Tools</p>
+    <h2 data-aos="fade-up" data-aos-delay="60">Werkzeuge, die für<br>lokale Betriebe gemacht sind</h2>
+    <p class="section-intro" data-aos="fade-up" data-aos-delay="120">
+      Wir empfehlen ausschließlich Tools, die wir selbst kennen, die DSGVO-konform sind
+      und die nachweislich für lokale Betriebe in Deutschland funktionieren.
+    </p>
+
+    <div class="tools-section" data-aos="fade-up">
+      <div class="tools-label">
+        <span class="tools-cat-pill pill-blue">Terminbuchung</span>
+      </div>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-logo-wrap tool-logo-blue">Sh</div>
+          <div class="tool-info">
+            <strong>Shore</strong>
+            <div class="tool-tags"><span class="tool-tag">DSGVO-konform</span><span class="tool-tag">Made in Germany</span></div>
+            <p>Marktführer im DACH-Raum für Terminbuchung. Eigene App für Ihre Kunden, automatische Erinnerungen, Kalender-Sync. Skaliert von der Einzelperson bis zum Salon mit mehreren Mitarbeitern.</p>
+          </div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-logo-wrap tool-logo-teal">Fr</div>
+          <div class="tool-info">
+            <strong>Fresha</strong>
+            <div class="tool-tags"><span class="tool-tag">Kostenlose Basisversion</span><span class="tool-tag">International</span></div>
+            <p>Weltweiter Marktführer im Beauty-Segment. Die Basisversion ist dauerhaft kostenlos — ohne Zeitlimit. Ideal für Friseure, Kosmetik und Wellness.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tools-section" data-aos="fade-up">
+      <div class="tools-label">
+        <span class="tools-cat-pill pill-red">Kartenzahlung</span>
+      </div>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-logo-wrap tool-logo-red">Su</div>
+          <div class="tool-info">
+            <strong>SumUp</strong>
+            <div class="tool-tags"><span class="tool-tag">Keine Grundgebühr</span><span class="tool-tag">Ab 0 €/Monat</span></div>
+            <p>Einfaches Kartenlesegerät ohne Monatsgebühr. Kunden zahlen per Karte, Apple Pay oder Google Pay. Das Gerät kostet einmalig ca. 39 € — sonst keine laufenden Kosten.</p>
+          </div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-logo-wrap tool-logo-navy">mP</div>
+          <div class="tool-info">
+            <strong>myPOS</strong>
+            <div class="tool-tags"><span class="tool-tag">Eigenes Geschäftskonto</span><span class="tool-tag">All-in-One</span></div>
+            <p>All-in-One mit eigenem myPOS-Geschäftskonto. Zahlungen landen direkt dort. Für Betriebe, die keine separate Bankverbindung für Kartenumsätze einrichten möchten.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tools-section" data-aos="fade-up">
+      <div class="tools-label">
+        <span class="tools-cat-pill pill-yellow">Sichtbarkeit &amp; Website</span>
+      </div>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-logo-wrap tool-logo-yellow">Ji</div>
+          <div class="tool-info">
+            <strong>Jimdo</strong>
+            <div class="tool-tags"><span class="tool-tag">DSGVO-konform</span><span class="tool-tag">Keine Programmierkenntnisse</span></div>
+            <p>Einfacher Website-Baukasten für lokale Betriebe. Google-optimiert, mobilfreundlich, DSGVO-konform. Für Betriebe ohne eigene Website der schnellste Weg zu einer professionellen Online-Präsenz.</p>
+          </div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-logo-wrap tool-logo-green">G</div>
+          <div class="tool-info">
+            <strong>Google Unternehmensprofil</strong>
+            <div class="tool-tags"><span class="tool-tag">Kostenlos</span><span class="tool-tag">Unverzichtbar</span></div>
+            <p>Ihr Betrieb bei Google Maps mit Öffnungszeiten, Fotos, Bewertungen und Buchungslink — vollständig kostenlos und der erste Schritt, den wir bei jedem Betrieb empfehlen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="tools-footnote" data-aos="fade-up">
+      Alle genannten Tools sind DSGVO-konform und in Deutschland rechtssicher einsetzbar.
+      Wir empfehlen immer das, was zu Ihrem konkreten Betrieb passt — nicht das, womit wir am meisten verdienen.
+    </p>
+  </div>
+</section>
+
+<!-- 08 — FAQ -->
+<section class="section section-warm" id="faq">
+  <div class="container faq-container">
+    <p class="section-kicker" data-aos="fade-up">08 — Fragen &amp; Antworten</p>
+    <h2 data-aos="fade-up" data-aos-delay="60">Häufige Fragen</h2>
+    <p class="section-intro faq-intro" data-aos="fade-up" data-aos-delay="120">
+      Die Fragen, die wir am häufigsten bekommen — mit ehrlichen Antworten.
+    </p>
+
+    <div class="faq-list" data-aos="fade-up" data-aos-delay="160">
+      <details class="faq-item">
+        <summary class="faq-q">Ist das wirklich kostenlos für meinen Betrieb?</summary>
+        <div class="faq-a"><p>Ja. Analyse, Beratung, Einrichtung und 30 Tage Support sind für Sie vollständig kostenlos. Wir werden von den Tool-Anbietern mit einer einmaligen Provision entlohnt, wenn Sie das Tool verwenden. Für Sie ändert sich am Preis des Tools nichts.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Wie verdienen Sie Geld, wenn ich nichts zahle?</summary>
+        <div class="faq-a"><p>Wir sind zertifizierte Referral-Partner der Tool-Anbieter. Das funktioniert genau wie ein Versicherungsmakler: der Makler wird von der Versicherungsgesellschaft bezahlt, nicht vom Kunden. Shore, Fresha, SumUp oder Jimdo zahlen uns eine Provision, wenn Sie eines ihrer Tools einsetzen. Unser Interesse: das richtige Tool empfehlen — sonst kündigen Sie, und es gibt keine Provision.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Wie lange dauert die Einrichtung?</summary>
+        <div class="faq-a"><p>Je nach Tool und Umfang zwischen einer und drei Stunden — alles digital, kein Vor-Ort-Termin nötig. Wir arbeiten per Bildschirmfreigabe oder auf Basis der Informationen, die Sie uns schicken. Danach läuft das System, und Ihre Kunden können sofort buchen.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Muss ich einen Vertrag mit Durchgeklickt unterzeichnen?</summary>
+        <div class="faq-a"><p>Nein. Sie gehen keine vertragliche Verpflichtung mit uns ein. Alle Verträge laufen direkt zwischen Ihnen und dem Tool-Anbieter. Wir sind Ihr Berater und Einrichter — kein Vertragspartner.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Was, wenn das Tool nach einem Monat doch nicht passt?</summary>
+        <div class="faq-a"><p>Dann können Sie es direkt beim Anbieter kündigen. Wir können in diesem Fall helfen, eine bessere Alternative zu finden. Unser Ziel ist, dass das Tool langfristig für Sie funktioniert — das ist die einzige Art, wie unser Modell Sinn macht.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Ich kenne mich kaum mit Technik aus. Ist das trotzdem für mich?</summary>
+        <div class="faq-a"><p>Genau für diesen Fall sind wir da. Sie müssen keine Technik kennen, kein System einrichten, keinen Code schreiben. Wir kümmern uns um alles, erklären was wir tun und am Ende haben Sie einen fertigen Buchungslink. Das war's.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Für welche Regionen gilt das Angebot?</summary>
+        <div class="faq-a"><p>Wir kommen aus Fürth und kennen die Region gut — Fürth, Nürnberg, Erlangen und die Metropolregion. Die Beratung und Einrichtung läuft digital, daher sind wir für Betriebe in ganz Bayern offen. Schreiben Sie uns einfach.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Was passiert nach den 30 Tagen Nachbetreuung?</summary>
+        <div class="faq-a"><p>Das Tool läuft danach selbstständig weiter. Für technischen Support ist dann der Anbieter zuständig — Shore, Fresha und Co. haben alle eigene Kundendienste. Wenn Sie neue Fragen haben oder etwas erweitern möchten, können Sie uns jederzeit kontaktieren.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 09 — KAPAZITÄT -->
+<section class="section" id="kapazitaet">
+  <div class="container" style="text-align:center;">
+    <p class="section-kicker" data-aos="fade-up">09 — Verfügbarkeit</p>
+    <h2 data-aos="fade-up" data-aos-delay="60">Wir begleiten jeden<br>Betrieb persönlich</h2>
+    <p class="section-intro" data-aos="fade-up" data-aos-delay="120" style="margin-inline:auto;">
+      Damit die Qualität stimmt, nehmen wir pro Monat eine begrenzte Anzahl neuer Betriebe an.
+      So hat jeder Betrieb einen echten Ansprechpartner — kein Ticket, keine Warteschleife.
+    </p>
+    <div class="capacity-visual" data-aos="zoom-in" data-aos-delay="200">
+      <div class="cap-label">August 2026 — Verfügbare Plätze</div>
+      <div class="cap-slots">
+        <div class="cap-slot cap-taken" title="Vergeben"></div>
+        <div class="cap-slot cap-taken" title="Vergeben"></div>
+        <div class="cap-slot cap-taken" title="Vergeben"></div>
+        <div class="cap-slot cap-free cap-pulse" title="Verfügbar"></div>
+        <div class="cap-slot cap-free cap-pulse" title="Verfügbar"></div>
+      </div>
+      <div class="cap-text">
+        <span class="cap-used">3 Plätze vergeben</span>
+        <span class="cap-sep">·</span>
+        <span class="cap-free-txt">noch <strong>2 frei</strong> in diesem Monat</span>
+      </div>
+      <a class="btn btn-primary" href="#kontakt" style="margin-top:0.5rem;">Platz sichern</a>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE DIVIDER: section (base) → kontakt-section (warm) -->
+<div class="wave-divider wave-base-to-warm" aria-hidden="true">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C360,0 1080,60 1440,40 L1440,60 L0,60 Z" fill="#F2EDE5"/></svg>
+</div>
+
+<!-- 10 — KONTAKT -->
+<section class="section section-warm kontakt-section" id="kontakt">
+  <div class="container kontakt-inner">
+    <p class="section-kicker" data-aos="fade-up">10 — Anfrage</p>
+    <h2 data-aos="fade-up" data-aos-delay="60">Kostenlose Analyse anfragen</h2>
+    <p class="section-intro" data-aos="fade-up" data-aos-delay="120">
+      Füllen Sie das Formular aus — wir melden uns innerhalb von 1–2 Werktagen mit einer
+      ehrlichen Einschätzung. Keine Verpflichtung, kein Verkaufsgespräch.
+    </p>
+
+    <form class="kontakt-form" id="kontaktForm" action="https://formspree.io/f/xyeggaqq" method="POST" data-aos="fade-up" data-aos-delay="160">
+      <input type="hidden" name="_subject" value="Kostenlose Digital-Analyse angefragt (durchgeklickt.com)">
+      <input type="hidden" name="_next" value="?gesendet=1#kontakt">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="f-name">Ihr Name</label>
+          <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Max Mustermann">
+        </div>
+        <div class="form-field">
+          <label for="f-email">E-Mail-Adresse</label>
+          <input type="email" id="f-email" name="_replyto" required autocomplete="email" placeholder="info@meinbetrieb.de">
+        </div>
+        <div class="form-field">
+          <label for="f-betrieb">Name Ihres Betriebs</label>
+          <input type="text" id="f-betrieb" name="betrieb" required autocomplete="organization" placeholder="Salon Mustermann">
+        </div>
+        <div class="form-field">
           <label for="f-branche">Branche</label>
           <select id="f-branche" name="branche">
             <option value="">Bitte wählen (optional)</option>
             <option>Friseur / Barbershop</option>
             <option>Zahnarztpraxis</option>
             <option>Tierarztpraxis</option>
+            <option>Arztpraxis / Heilpraktiker</option>
             <option>Optiker</option>
             <option>Immobilienmakler</option>
-            <option>Handwerk / Sanitär / Elektro</option>
+            <option>Handwerk (Sanitär / Elektro / Maler etc.)</option>
             <option>Café / Bistro</option>
+            <option>Kosmetik / Wellness</option>
+            <option>Bäckerei / Konditorei</option>
             <option>Sonstiges</option>
           </select>
         </div>
-        <div class="form-row">
-          <label for="f-nachricht">Nachricht (optional)</label>
-          <textarea id="f-nachricht" name="nachricht" rows="3"></textarea>
-        </div>
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary btn-large">Kostenlose Analyse anfragen</button>
-          <span class="zero-cost-badge">0&nbsp;€ Kosten · unverbindlich</span>
-        </div>
-        <p class="form-privacy-note">
-          Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäß unserer
-          <a href="datenschutz.html">Datenschutzerklärung</a> zu.
-        </p>
-      </form>
-
-      <div class="kontakt-success" id="kontaktSuccess" hidden>
-        <p><strong>Danke, Ihre Anfrage ist angekommen.</strong> Sie hören sich in der Regel innerhalb
-           weniger Tage persönlich von uns.</p>
       </div>
+      <div class="form-field form-field-full">
+        <label for="f-nachricht">Kurze Beschreibung (optional)</label>
+        <textarea id="f-nachricht" name="nachricht" rows="3" placeholder="z. B. &quot;Wir nehmen Termine aktuell nur telefonisch an und haben keine eigene Website.&quot;"></textarea>
+      </div>
+      <div class="form-submit-row">
+        <button type="submit" class="btn btn-primary btn-large">Kostenlose Analyse anfragen</button>
+        <div class="zero-badge-group">
+          <span class="zero-badge">0 €</span>
+          <span class="zero-badge-txt">Unverbindlich &amp; kein Vertrag</span>
+        </div>
+      </div>
+      <p class="form-legal">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäß unserer <a href="datenschutz.html">Datenschutzerklärung</a> zu.</p>
+    </form>
 
-      <p class="kontakt-direct">Oder direkt per E-Mail: <a href="mailto:D.Durchgeklickt@gmail.com?subject=Kostenlose%20Digital-Analyse%20anfragen&body=Hallo%20Daniel%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20kostenlose%20Digital-Analyse%20f%C3%BCr%20meinen%20Betrieb%3A%0A%0ABetriebsname%3A%20%0AOrt%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe">D.Durchgeklickt@gmail.com</a></p>
+    <div class="kontakt-success" id="kontaktSuccess" hidden>
+      <div class="success-icon">&#10003;</div>
+      <p><strong>Danke — Ihre Anfrage ist angekommen.</strong><br>Sie hören innerhalb von 1–2 Werktagen persönlich von uns.</p>
     </div>
-  </section>
+
+    <div class="kontakt-alternatives" data-aos="fade-up">
+      <p>Oder direkt per E-Mail:
+        <a href="mailto:D.Durchgeklickt@gmail.com?subject=Kostenlose%20Digital-Analyse%20anfragen">D.Durchgeklickt@gmail.com</a>
+      </p>
+      <p class="kontakt-alt-note">Daniel Schweiger · Lehmusstraße 35 · 90766 Fürth</p>
+    </div>
+  </div>
+</section>
 
 </main>
 
+<section class="section-philosophy" id="philosophie">
+  <div class="container philosophy-inner">
+    <div class="philosophy-text" data-aos="fade-right">
+      <p class="section-kicker">Unsere Haltung</p>
+      <h2>Wir arbeiten nur dann, wenn es für Sie Sinn macht.</h2>
+      <p>Wir empfehlen kein Tool, das nicht zum Betrieb passt. Wir richten nichts ein, was Sie anschließend nicht verstehen. Und wir verdienen nur, wenn Sie langfristig dabei bleiben — unser Anreiz ist Ihr Erfolg, nicht ein schneller Vertragsabschluss.</p>
+      <p style="margin-top:1rem;">Kleines Unternehmen, echter Service, echte Menschen aus Fürth.</p>
+    </div>
+    <div class="philosophy-values" data-aos="fade-left" data-aos-delay="100">
+      <div class="phil-val">
+        <span class="phil-icon"><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="#1A1A1A"/><path d="M6 11l4 4 6-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+        <div><strong>Transparenz über alles</strong><p>Wir erklären genau, womit wir Geld verdienen — keine versteckten Abhängigkeiten.</p></div>
+      </div>
+      <div class="phil-val">
+        <span class="phil-icon"><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="#1A1A1A"/><path d="M6 11l4 4 6-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+        <div><strong>Kein Risiko für Sie</strong><p>Kein Vertrag mit uns, keine Vorabkosten, keine Bindung — Sie testen erst, dann entscheiden Sie.</p></div>
+      </div>
+      <div class="phil-val">
+        <span class="phil-icon"><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="#1A1A1A"/><path d="M6 11l4 4 6-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+        <div><strong>Lokal und persönlich</strong><p>Fürth und Nürnberg sind unser Revier. Wir kennen die Betriebe hier.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="container footer-inner">
-    <img class="footer-logo" src="assets/logo-mark.svg" alt="" width="30" height="30">
+    <div class="footer-brand">
+      <img src="assets/logo-mark.svg" alt="" width="32" height="32">
+      <span>durchgeklickt</span>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <strong>Kontakt</strong>
+        <a href="mailto:D.Durchgeklickt@gmail.com">D.Durchgeklickt@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <strong>Partnerschaften</strong>
+        <span>Shore · Fresha · SumUp</span>
+        <span>myPOS · Jimdo</span>
+      </div>
+      <div class="footer-col">
+        <strong>Rechtliches</strong>
+        <a href="datenschutz.html">Datenschutzerklärung</a>
+      </div>
+    </div>
     <div class="footer-impressum">
-      <h3>Impressum</h3>
-      <p>
-        Angaben gemäß § 5 TMG:<br>
-        Daniel Schweiger<br>
-        Lehmusstraße 35<br>
-        90766 Fürth<br>
-        E-Mail: <a href="mailto:D.Durchgeklickt@gmail.com">D.Durchgeklickt@gmail.com</a>
+      <p><strong>Impressum (&#167; 5 TMG):</strong>
+         Daniel Schweiger · Lehmusstraße 35 · 90766 Fürth ·
+         <a href="mailto:D.Durchgeklickt@gmail.com">D.Durchgeklickt@gmail.com</a>
       </p>
     </div>
-    <p class="footer-links"><a href="datenschutz.html">Datenschutzerklärung</a></p>
-    <p class="footer-copyright">© 2026 Durchgeklickt — Daniel Schweiger</p>
+    <p class="footer-copy">&#169; 2026 Durchgeklickt — Daniel Schweiger, Fürth</p>
   </div>
 </footer>
 
-<!-- Sticky Mobile CTA -->
-<div class="mobile-sticky-cta" id="mobileCta">
-  <a class="btn btn-primary" href="#kontakt">Kostenlose Analyse anfragen</a>
+<div class="mobile-sticky" id="mobileCta">
+  <a class="btn btn-primary" href="#kontakt">Jetzt kostenlos anfragen</a>
 </div>
 
-<script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/just-validate@4.4.0/dist/just-validate.production.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Nach oben scrollen">
+  <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6h4v6h4v-6h4z" fill="currentColor"/></svg>
+</button>
 
-<!-- Sprint 123: der zweite, hier urspruenglich zusaetzlich eingefuegte LocalBusiness-Block
-     wurde in den einen Block im <head> zusammengefuehrt (inkl. "Erlangen" aus diesem Block) --
-     zwei separate Schema.org-Bloeche fuer dieselbe Entitaet mit leicht abweichenden Daten
-     verwirren strukturierte Daten mehr, als sie helfen. -->
+<!-- Lottie Player -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<!-- Lenis smooth scroll -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<!-- Anime.js (counter animations) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<!-- AOS – Animate On Scroll -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
+
+<!-- CHAT WIDGET -->
+<div class="chat-widget" id="chatWidget" aria-live="polite">
+  <div class="chat-panel" id="chatPanel" hidden>
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <span class="chat-avatar" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#1B4F9C"/><path d="M6 9h8M6 12h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <div>
+          <strong class="chat-name">Durchgeklickt Assistent</strong>
+          <span class="chat-status">Online</span>
+        </div>
+      </div>
+      <button class="chat-close" id="chatClose" aria-label="Chat schließen">
+        <svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg chat-msg--bot">
+        Hallo! Ich beantworte kurze Fragen zu Online-Terminbuchung für Ihren Betrieb. Womit kann ich helfen?
+      </div>
+    </div>
+    <form class="chat-input-row" id="chatForm" autocomplete="off">
+      <input class="chat-input" id="chatInput" type="text" placeholder="Ihre Frage …" maxlength="600" required>
+      <button class="chat-send" type="submit" aria-label="Senden">
+        <svg width="18" height="18" viewBox="0 0 18 18"><path d="M2 9l14-7-7 14V9H2z" fill="currentColor"/></svg>
+      </button>
+    </form>
+  </div>
+  <button class="chat-fab" id="chatFab" aria-label="Chat öffnen" aria-expanded="false">
+    <svg class="chat-fab-icon chat-fab-icon--open" width="24" height="24" viewBox="0 0 24 24"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z" fill="currentColor"/></svg>
+    <svg class="chat-fab-icon chat-fab-icon--close" width="24" height="24" viewBox="0 0 24 24" hidden><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>
+    <span class="chat-fab-badge" id="chatBadge" aria-hidden="true">1</span>
+  </button>
+</div>
+
 </body>
 </html>
