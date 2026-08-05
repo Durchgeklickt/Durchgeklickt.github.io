@@ -3,83 +3,84 @@
 
   document.documentElement.classList.remove("no-js");
 
-  var prefersReducedMotion = window.matchMedia &&
+  var reduced = window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- AOS – Animate On Scroll ---------- */
+  if (typeof AOS !== "undefined") {
+    AOS.init({
+      duration: 600,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 60,
+      disable: reduced ? true : false
+    });
+  }
+
   /* ---------- Lenis Smooth Scroll ---------- */
-  if (!prefersReducedMotion && typeof Lenis !== "undefined") {
+  if (!reduced && typeof Lenis !== "undefined") {
     var lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.15,
       easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
       smoothWheel: true
     });
+
     function lenisRaf(time) {
       lenis.raf(time);
       requestAnimationFrame(lenisRaf);
     }
     requestAnimationFrame(lenisRaf);
 
-    /* Anchor links → Lenis smooth scroll */
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
       a.addEventListener("click", function (e) {
-        var target = document.querySelector(a.getAttribute("href"));
-        if (target) {
-          e.preventDefault();
-          lenis.scrollTo(target, { offset: -80 });
-        }
+        var id = a.getAttribute("href");
+        if (id.length <= 1) return;
+        var target = document.querySelector(id);
+        if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -80 }); }
       });
     });
   }
 
-  /* ---------- Reveal Animations ---------- */
-  var revealEls = document.querySelectorAll(".reveal, .reveal-right");
-
-  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
-  } else {
-    var revealObs = new IntersectionObserver(
-      function (entries, obs) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
-    );
-    revealEls.forEach(function (el) { revealObs.observe(el); });
-  }
-
-  /* ---------- Counter Animation ---------- */
+  /* ---------- Counter Animation (Anime.js) ---------- */
   function animateCounter(el) {
     var target = parseInt(el.getAttribute("data-count"), 10);
-    if (!target || prefersReducedMotion) { el.textContent = target || el.textContent; return; }
-    var duration = 1600;
-    var start = null;
-    function step(ts) {
-      if (!start) start = ts;
-      var progress = Math.min((ts - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target;
+    if (!target) return;
+    if (reduced) { el.textContent = target; return; }
+
+    if (typeof anime !== "undefined") {
+      var obj = { val: 0 };
+      anime({
+        targets: obj,
+        val: target,
+        duration: 1800,
+        easing: "easeOutCubic",
+        update: function () { el.textContent = Math.round(obj.val); },
+        complete: function () { el.textContent = target; }
+      });
+    } else {
+      /* Fallback ohne Anime.js */
+      var start = null;
+      var dur = 1600;
+      function step(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+        if (p < 1) requestAnimationFrame(step); else el.textContent = target;
+      }
+      requestAnimationFrame(step);
     }
-    requestAnimationFrame(step);
   }
 
   if ("IntersectionObserver" in window) {
-    var counterObs = new IntersectionObserver(
-      function (entries, obs) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+    var counterObs = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
     document.querySelectorAll(".stat-num[data-count]").forEach(function (el) {
       counterObs.observe(el);
     });
@@ -89,14 +90,11 @@
   var mobileCta = document.getElementById("mobileCta");
   var kontaktSection = document.getElementById("kontakt");
   if (mobileCta && kontaktSection && "IntersectionObserver" in window) {
-    var ctaObs = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          mobileCta.style.display = entry.isIntersecting ? "none" : "";
-        });
-      },
-      { threshold: 0.2 }
-    );
+    var ctaObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        mobileCta.style.display = entry.isIntersecting ? "none" : "";
+      });
+    }, { threshold: 0.2 });
     ctaObs.observe(kontaktSection);
   }
 
