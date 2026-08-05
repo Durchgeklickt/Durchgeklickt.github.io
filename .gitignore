@@ -5,3 +5,12 @@ durchgeklickt_deploy.zip
 *.log
 .DS_Store
 Thumbs.db
+
+# Secrets / Credentials — dürfen nie ins Repo
+.env
+.env.*
+*.pem
+*.key
+*secret*
+chatbot-backend/__pycache__/
+chatbot-backend/*.pyc
