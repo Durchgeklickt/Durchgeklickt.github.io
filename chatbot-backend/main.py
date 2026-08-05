@@ -2,7 +2,7 @@ import os
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import google.generativeai as genai
+from groq import Groq
 from collections import defaultdict
 import time
 
@@ -24,7 +24,7 @@ app.add_middleware(
     allow_headers=["Content-Type"],
 )
 
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
 SYSTEM_PROMPT = """Du bist der Assistent von Durchgeklickt — einem lokalen Dienstleister aus Fürth, der kleinen Betrieben (Friseuren, Kosmetikstudios, Praxen, Massagestudios, Nagelstudios) Online-Terminbuchungs-Systeme einrichtet.
 
@@ -52,7 +52,8 @@ Deine Aufgabe:
 
 _rate_limit: dict = defaultdict(list)
 RATE_LIMIT_WINDOW = 60
-RATE_LIMIT_MAX = 10
+RATE_LIMIT_MAX = 20  # Groq hat 14.400 RPM -- wir limitieren trotzdem pro IP
+
 
 def check_rate_limit(ip: str) -> bool:
     now = time.time()
@@ -61,6 +62,29 @@ def check_rate_limit(ip: str) -> bool:
         return False
     _rate_limit[ip].append(now)
     return True
+
+
+def _to_openai_history(raw: list) -> list:
+    """Konvertiert Gemini-Format-History ({role, parts}) in OpenAI-Format ({role, content})."""
+    result = []
+    for turn in raw:
+        if not isinstance(turn, dict):
+            continue
+        role = turn.get("role")
+        parts = turn.get("parts", [])
+        if role == "model":
+            role = "assistant"
+        if role not in ("user", "assistant"):
+            continue
+        if isinstance(parts, list) and parts:
+            content = parts[0].get("text", "") if isinstance(parts[0], dict) else str(parts[0])
+        elif isinstance(parts, str):
+            content = parts
+        else:
+            continue
+        if content:
+            result.append({"role": role, "content": content})
+    return result
 
 
 class ChatRequest(BaseModel):
@@ -81,27 +105,23 @@ async def chat(req: ChatRequest, request: Request):
     if len(msg) > 600:
         raise HTTPException(400, "Nachricht zu lang (max. 600 Zeichen).")
 
-    safe_history = []
-    for turn in req.history[-6:]:
-        if (
-            isinstance(turn, dict)
-            and turn.get("role") in ("user", "model")
-            and isinstance(turn.get("parts"), list)
-        ):
-            safe_history.append(turn)
+    history = _to_openai_history(req.history[-6:])
+
+    messages = [{"role": "system", "content": SYSTEM_PROMPT}] + history + [{"role": "user", "content": msg}]
 
     try:
-        model = genai.GenerativeModel(
-            "gemini-1.5-flash",
-            system_instruction=SYSTEM_PROMPT,
+        completion = client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=messages,
+            max_tokens=300,
+            temperature=0.7,
         )
-        chat_session = model.start_chat(history=safe_history)
-        response = chat_session.send_message(msg)
-        return {"reply": response.text, "ok": True}
+        reply = completion.choices[0].message.content
+        return {"reply": reply, "ok": True}
     except Exception:
         raise HTTPException(500, "Antwort konnte nicht abgerufen werden.")
 
 
 @app.get("/health")
 async def health():
-    return {"status": "ok"}
+    return {"status": "ok", "backend": "groq/llama-3.1-8b-instant"}
