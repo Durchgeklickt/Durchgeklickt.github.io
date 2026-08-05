@@ -814,6 +814,31 @@ a { color: var(--color-blue); }
   color: var(--color-text);
 }
 
+/* ── Typed.js Cursor ── */
+#typed-hero {
+  color: var(--color-red-text);
+  font-style: normal;
+}
+.typed-cursor {
+  color: var(--color-red-text);
+  font-weight: 400;
+  animation: typed-blink 0.7s infinite;
+}
+@keyframes typed-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* AOS + fade-in Harmonie: AOS setzt seine eigenen opacity/transform —
+   Elemente die BEIDE haben zeigen ggf. doppelte Transition. Kein Bug,
+   aber AOS gewinnt da es später im DOM lädt. */
+[data-aos] {
+  pointer-events: none;
+}
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+
 @media print {
   .fade-in { transform: none !important; }
   .mobile-sticky-cta, .site-header { display: none !important; }

@@ -7,6 +7,7 @@
 <meta name="description" content="Kostenlose Digital-Analyse für Friseure, Bäckereien, Praxen &amp; Handwerksbetriebe in Fürth und Nürnberg. Online-Terminbuchung einrichten — 0€ Kosten für Ihren Betrieb.">
 <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 
 <!-- Open Graph / Social-Vorschau. Sprint 124: durchgeklickt.com ist seit dieser Sitzung echt bei
      IONOS registriert (siehe AGENT_LOG.md) -- og:url/Schema-url unten sind daher keine Platzhalter
@@ -70,7 +71,7 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-copy fade-in">
-        <p class="eyebrow">Digitalberatung für lokale Betriebe · Fürth &amp; Nürnberg</p>
+        <p class="eyebrow">Digitalberatung für <span id="typed-hero"></span></p>
         <h1>Ihr Betrieb ist gut. Online sieht's keiner.</h1>
         <p class="hero-sub">
           Jeden Monat verlieren Betriebe in Fürth Buchungen, weil Interessenten nach 18 Uhr niemanden
@@ -88,18 +89,18 @@
 
   <!-- STATS-LEISTE -->
   <div class="stats-bar" aria-hidden="true">
-    <div class="container stats-inner">
-      <div class="stat-item">
+    <div class="container stats-inner" data-aos="fade-up">
+      <div class="stat-item" data-aos="fade-up">
         <span class="stat-num" data-target="600">0</span><span class="stat-suffix">+</span>
         <span class="stat-label">Betriebe analysiert</span>
       </div>
       <div class="stat-divider"></div>
-      <div class="stat-item">
+      <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
         <span class="stat-num" data-target="0">0</span><span class="stat-suffix">&nbsp;€</span>
         <span class="stat-label">Kosten für Ihren Betrieb</span>
       </div>
       <div class="stat-divider"></div>
-      <div class="stat-item">
+      <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
         <span class="stat-num" data-target="30">0</span><span class="stat-suffix">&nbsp;Tage</span>
         <span class="stat-label">persönliche Nachbetreuung</span>
       </div>
@@ -110,23 +111,23 @@
   <section class="section section-alt" id="problem">
     <div class="container">
       <span class="section-index fade-in">01</span>
-      <h2 class="fade-in">Was es kostet, wenn sich nichts ändert</h2>
-      <p class="section-intro fade-in">
+      <h2 class="fade-in" data-aos="fade-up">Was es kostet, wenn sich nichts ändert</h2>
+      <p class="section-intro fade-in" data-aos="fade-up" data-aos-delay="100">
         Die meisten Betriebe verlieren keine Kunden, weil ihre Arbeit schlecht ist — sondern weil sie
         online schwer zu finden oder schwer zu buchen sind.
       </p>
       <div class="loss-grid">
-        <div class="loss-card fade-in">
+        <div class="loss-card fade-in" data-aos="fade-right" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
           <h3>Verpasste Buchungen</h3>
           <p>Wer nach 18 Uhr oder am Wochenende einen Termin sucht und niemanden erreicht, bucht oft
              einfach beim nächsten Anbieter mit Online-Kalender — ohne dass Sie es je erfahren.</p>
         </div>
-        <div class="loss-card fade-in">
+        <div class="loss-card fade-in" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
           <h3>Unsichtbar bei Google</h3>
           <p>Kunden, die "Friseur in Fürth" oder "Zahnarzt in der Nähe" suchen, landen zuerst bei
              Betrieben mit gepflegtem Online-Auftritt — unabhängig davon, wer die bessere Arbeit macht.</p>
         </div>
-        <div class="loss-card fade-in">
+        <div class="loss-card fade-in" data-aos="fade-left" data-aos-delay="200" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
           <h3>Abwanderung zur Konkurrenz</h3>
           <p>Ein Nachbarbetrieb mit Online-Terminbuchung wirkt moderner und erreichbarer — gerade bei
              jüngeren Kunden entscheidet das oft, wo gebucht wird.</p>
@@ -139,8 +140,8 @@
   <section class="section" id="leistungen">
     <div class="container">
       <span class="section-index fade-in">02</span>
-      <h2 class="fade-in">Für wen wir arbeiten</h2>
-      <p class="section-intro fade-in">
+      <h2 class="fade-in" data-aos="fade-up">Für wen wir arbeiten</h2>
+      <p class="section-intro fade-in" data-aos="fade-up" data-aos-delay="100">
         Lokale Expertise statt Standardpaket: Wir kennen die typischen digitalen Lücken je Branche —
         aus echter Recherche bei Betrieben in Fürth und Nürnberg, nicht aus einer Checkliste von der Stange.
       </p>
@@ -164,21 +165,21 @@
   <section class="section section-alt" id="ablauf">
     <div class="container">
       <span class="section-index fade-in">03</span>
-      <h2 class="fade-in">So einfach läuft es ab</h2>
+      <h2 class="fade-in" data-aos="fade-up">So einfach läuft es ab</h2>
       <div class="steps-grid">
-        <div class="step-card fade-in">
+        <div class="step-card fade-in" data-aos="fade-right" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
           <span class="step-number">1</span>
           <h3>Kostenlose Analyse anfragen</h3>
           <p>Kurze Nachricht mit Ihrem Betriebsnamen — wir prüfen Website, Auffindbarkeit und
              Terminbuchung Ihres Betriebs.</p>
         </div>
-        <div class="step-card fade-in">
+        <div class="step-card fade-in" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
           <span class="step-number">2</span>
           <h3>Persönlicher Vorschlag</h3>
           <p>Sie erhalten konkrete, auf Ihren Betrieb zugeschnittene Vorschläge — keine
              Standard-Floskeln, kein Fachchinesisch.</p>
         </div>
-        <div class="step-card fade-in step-card-highlight">
+        <div class="step-card fade-in step-card-highlight" data-aos="zoom-in" data-aos-delay="200" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
           <span class="step-number">3</span>
           <h3>Sie entscheiden — 0&nbsp;€ Kosten</h3>
           <p>Nur wenn es für Sie passt, setzen wir gemeinsam um. Keine Verpflichtung, keine
@@ -192,21 +193,21 @@
   <section class="section partnership-section" id="partnerschaft">
     <div class="container">
       <span class="section-index fade-in">04</span>
-      <h2 class="fade-in">Wir wollen Ihren Betrieb noch kennen, wenn der Kalender voll ist</h2>
-      <p class="section-intro fade-in">
+      <h2 class="fade-in" data-aos="fade-up">Wir wollen Ihren Betrieb noch kennen, wenn der Kalender voll ist</h2>
+      <p class="section-intro fade-in" data-aos="fade-up" data-aos-delay="100">
         Kein einmaliges Setup, das Sie danach alleine lässt. Wir schauen,
         was wirklich funktioniert — und melden uns, wenn etwas besser geht.
       </p>
       <div class="partnership-points fade-in">
-        <div class="pp-item">
+        <div class="pp-item" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
           <strong>Einrichtung inklusive</strong>
           <span>Wir richten das Tool für Sie ein — kein YouTube-Tutorial, kein IT-Stress.</span>
         </div>
-        <div class="pp-item">
+        <div class="pp-item" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
           <strong>30 Tage Nachbetreuung</strong>
           <span>Erster Monat mit echtem Support — damit das System wirklich läuft, nicht nur installiert ist.</span>
         </div>
-        <div class="pp-item">
+        <div class="pp-item" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
           <strong>Kein Vertrag mit uns</strong>
           <span>Wenn es nicht passt, ist es vorbei. Wir setzen auf langfristige Beziehungen — nicht auf Knebelverträge.</span>
         </div>
@@ -218,19 +219,19 @@
   <section class="section" id="werkzeuge">
     <div class="container">
       <span class="section-index fade-in">05</span>
-      <h2 class="fade-in">Werkzeuge, die wirklich funktionieren</h2>
-      <p class="section-intro fade-in">
+      <h2 class="fade-in" data-aos="fade-up">Werkzeuge, die wirklich funktionieren</h2>
+      <p class="section-intro fade-in" data-aos="fade-up" data-aos-delay="100">
         Wir empfehlen ausschließlich Tools, die wir selbst kennen und die für
         lokale Betriebe tatsächlich sinnvoll sind — keine Provisionsmaschine
         für alles, was Geld abwirft.
       </p>
       <div class="authority-grid fade-in">
-        <div class="authority-item">
+        <div class="authority-item" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
           <strong>Shore</strong>
           <span>Terminbuchung für Friseure, Praxen &amp; Dienstleister —
           marktführend im DACH-Raum, DSGVO-konform, mobil nutzbar.</span>
         </div>
-        <div class="authority-item">
+        <div class="authority-item" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="false">
           <strong>Fresha</strong>
           <span>Kostenlose Basis-Variante — ideal für Betriebe, die erst
           einsteigen wollen ohne Monatskosten.</span>
@@ -246,8 +247,8 @@
   <section class="section section-alt" id="faq">
     <div class="container">
       <span class="section-index fade-in">06</span>
-      <h2 class="fade-in">Fragen, die wir oft hören</h2>
-      <div class="faq-list fade-in">
+      <h2 class="fade-in" data-aos="fade-up">Fragen, die wir oft hören</h2>
+      <div class="faq-list fade-in" data-aos="fade-up">
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
@@ -297,12 +298,12 @@
   <section class="section capacity-section">
     <div class="container">
       <span class="section-index fade-in">07</span>
-      <h2 class="fade-in">Bewusst begrenzte Kapazität</h2>
-      <p class="section-intro fade-in">
+      <h2 class="fade-in" data-aos="fade-up">Bewusst begrenzte Kapazität</h2>
+      <p class="section-intro fade-in" data-aos="fade-up" data-aos-delay="100">
         Jede Analyse wird persönlich durchgeführt — nichts läuft automatisiert durch.
         Deshalb maximal <strong>5 neue Betriebe pro Monat</strong>.
       </p>
-      <div class="capacity-visual fade-in">
+      <div class="capacity-visual fade-in" data-aos="fade-up">
         <div class="capacity-slots">
           <div class="slot slot-taken" title="Vergeben"></div>
           <div class="slot slot-taken" title="Vergeben"></div>
@@ -319,8 +320,8 @@
   <section class="section kontakt-section" id="kontakt">
     <div class="container kontakt-inner">
       <span class="section-index fade-in">08</span>
-      <h2 class="fade-in">Jetzt kostenlose Analyse anfragen</h2>
-      <p class="section-intro fade-in">
+      <h2 class="fade-in" data-aos="fade-up">Jetzt kostenlose Analyse anfragen</h2>
+      <p class="section-intro fade-in" data-aos="fade-up" data-aos-delay="100">
         Kurz das Formular ausfüllen. Sie bekommen eine ehrliche Einschätzung — ganz ohne Verpflichtung
         und ohne Kosten für Ihren Betrieb.
       </p>
@@ -411,6 +412,9 @@
 </div>
 
 <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
 
 <!-- Sprint 123: der zweite, hier urspruenglich zusaetzlich eingefuegte LocalBusiness-Block
      wurde in den einen Block im <head> zusammengefuehrt (inkl. "Erlangen" aus diesem Block) --

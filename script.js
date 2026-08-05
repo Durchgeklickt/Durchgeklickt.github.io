@@ -115,4 +115,44 @@
       success.hidden = false;
     }
   }
+
+  // AOS initialisieren
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 650,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 50,
+      disable: prefersReducedMotion ? true : false
+    });
+  }
+
+  // Typed.js Hero
+  if (typeof Typed !== 'undefined' && document.getElementById('typed-hero')) {
+    new Typed('#typed-hero', {
+      strings: [
+        'Friseure &amp; Barbershops.',
+        'Tierarztpraxen.',
+        'Immobilienmakler.',
+        'Zahnarztpraxen.',
+        'Handwerksbetriebe.',
+        'lokale Betriebe aller Art.'
+      ],
+      typeSpeed: 55,
+      backSpeed: 28,
+      backDelay: 1800,
+      loop: true,
+      smartBackspace: true
+    });
+  }
+
+  // vanilla-tilt auf Karten
+  if (typeof VanillaTilt !== 'undefined') {
+    VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
+      max: 5,
+      speed: 600,
+      glare: false,
+      'full-page-listening': false
+    });
+  }
 })();
