@@ -52,24 +52,58 @@ Deine Aufgabe:
 
 # ── Rate Limiting ──────────────────────────────────────────────────────────────
 _rate_limit: dict[str, list[float]] = defaultdict(list)
-RATE_LIMIT_WINDOW = 60   # Sekunden
-RATE_LIMIT_MAX = 10      # Requests pro IP pro Minute
+RATE_LIMIT_WINDOW = 60        # Sekunden
+RATE_LIMIT_MAX    = 10        # Requests pro IP pro Minute
+RATE_LIMIT_DAILY  = 80        # Tages-Obergrenze pro IP (Schutz gegen langsame Floods)
+_rate_limit_daily: dict[str, list[float]] = defaultdict(list)
+_last_cleanup = 0.0
+CLEANUP_INTERVAL = 300        # alle 5 Minuten alten State bereinigen
 
 
 def _real_ip(request: Request) -> str:
     """Railway sitzt hinter einem Reverse Proxy — X-Forwarded-For auswerten."""
     forwarded = request.headers.get("X-Forwarded-For")
     if forwarded:
-        return forwarded.split(",")[0].strip()
+        # Nur erste IP nehmen; Rest kann durch Angreifer gesetzt sein
+        ip = forwarded.split(",")[0].strip()
+        # Grundlegende Sanity-Check: nicht leer, nicht zu lang
+        if ip and len(ip) < 50:
+            return ip
     return request.client.host if request.client else "unknown"
+
+
+def _cleanup_stale() -> None:
+    """Entfernt abgelaufene Einträge — verhindert unbegrenztes RAM-Wachstum."""
+    global _last_cleanup
+    now = time.time()
+    if now - _last_cleanup < CLEANUP_INTERVAL:
+        return
+    _last_cleanup = now
+    day = 86400
+    stale_min = [k for k, v in _rate_limit.items() if not v or now - v[-1] > RATE_LIMIT_WINDOW * 2]
+    stale_day = [k for k, v in _rate_limit_daily.items() if not v or now - v[-1] > day]
+    for k in stale_min:
+        del _rate_limit[k]
+    for k in stale_day:
+        del _rate_limit_daily[k]
 
 
 def _check_rate_limit(ip: str) -> bool:
     now = time.time()
+    _cleanup_stale()
+
+    # Minuten-Fenster
     _rate_limit[ip] = [t for t in _rate_limit[ip] if now - t < RATE_LIMIT_WINDOW]
     if len(_rate_limit[ip]) >= RATE_LIMIT_MAX:
         return False
+
+    # Tages-Fenster
+    _rate_limit_daily[ip] = [t for t in _rate_limit_daily[ip] if now - t < 86400]
+    if len(_rate_limit_daily[ip]) >= RATE_LIMIT_DAILY:
+        return False
+
     _rate_limit[ip].append(now)
+    _rate_limit_daily[ip].append(now)
     return True
 
 
